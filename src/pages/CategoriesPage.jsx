@@ -7,7 +7,7 @@ import SectionHeader from '../components/Common/SectionHeader'
 import ProductCard from '../components/Collection/ProductCard'
 
 function CategoriesPage({ categorySlug }) {
-  const selectedCategory = categories.find((category) => category.name.toLowerCase() === categorySlug)
+  const selectedCategory = categories.find((category) => category.slug === categorySlug)
   const visibleProducts = selectedCategory
     ? collectionItems.filter((product) => product.category.toLowerCase() === selectedCategory.name.toLowerCase())
     : collectionItems
@@ -44,7 +44,7 @@ function CategoriesPage({ categorySlug }) {
               {categories.map((category) => (
                 <a
                   key={category.name}
-                  href={`/categories/${category.name.toLowerCase()}`}
+                  href={`/categories/${category.slug}`}
                   className={`rounded-full border px-5 py-3 text-xs font-bold transition hover:-translate-y-0.5 ${
                     selectedCategory?.name === category.name
                       ? 'border-espresso bg-espresso text-white'
@@ -61,7 +61,7 @@ function CategoriesPage({ categorySlug }) {
             <div className="mt-12 grid gap-6 md:grid-cols-3">
               {categories.map((category, index) => (
                 <FadeIn key={category.name} delay={index * 0.08}>
-                  <a href={`/categories/${category.name.toLowerCase()}`} className="block">
+                  <a href={`/categories/${category.slug}`} className="block">
                     <CategoryCard category={category} />
                   </a>
                 </FadeIn>

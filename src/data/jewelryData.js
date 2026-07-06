@@ -11,6 +11,7 @@ import { FaXTwitter } from 'react-icons/fa6'
 import { GiDiamondRing, GiEarrings, GiNecklaceDisplay } from 'react-icons/gi'
 import { IoGiftOutline } from 'react-icons/io5'
 import { PiSparkleFill } from 'react-icons/pi'
+import { catalogProducts } from './catalogProducts'
 
 export const navLinks = [
   { label: 'Home', href: '/' },
@@ -56,68 +57,7 @@ export const aboutImages = {
     'https://images.unsplash.com/photo-1600721391776-b5cd0e0048f9?auto=format&fit=crop&w=640&q=85',
 }
 
-export const collectionItems = [
-  {
-    slug: 'gold-earring',
-    name: 'Gold Earring',
-    price: '$240.00',
-    category: 'Earrings',
-    material: '18k gold vermeil',
-    description: 'A softly sculpted gold earring with a warm polished finish and lightweight all-day feel.',
-    image:
-      'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=720&q=85',
-  },
-  {
-    slug: 'diamond-ring',
-    name: 'Diamond Ring',
-    price: '$540.00',
-    category: 'Rings',
-    material: '14k gold, lab diamond',
-    description: 'A delicate diamond ring designed with a low profile setting for refined everyday wear.',
-    image:
-      'https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=720&q=85',
-  },
-  {
-    slug: 'gold-necklace',
-    name: 'Gold Necklace',
-    price: '$420.00',
-    category: 'Necklaces',
-    material: '18k gold plated sterling silver',
-    description: 'A fluid gold necklace with a luminous chain and subtle pendant proportion.',
-    image:
-      'https://images.unsplash.com/photo-1599459182681-c938b7f78b6b?auto=format&fit=crop&w=720&q=85',
-  },
-  {
-    slug: 'pearl-bracelet',
-    name: 'Pearl Bracelet',
-    price: '$310.00',
-    category: 'Bracelets',
-    material: 'Freshwater pearl, gold clasp',
-    description: 'A modern pearl bracelet finished with a warm gold closure and hand-selected pearls.',
-    image:
-      'https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&w=720&q=85',
-  },
-  {
-    slug: 'opal-pendant',
-    name: 'Opal Pendant',
-    price: '$680.00',
-    category: 'Necklaces',
-    material: 'Opal, 14k gold',
-    description: 'A luminous opal pendant with soft color play and a fine gold chain.',
-    image:
-      'https://images.unsplash.com/photo-1619119069152-a2b331eb392a?auto=format&fit=crop&w=720&q=85',
-  },
-  {
-    slug: 'sculpted-cuff',
-    name: 'Sculpted Cuff',
-    price: '$390.00',
-    category: 'Bracelets',
-    material: 'Brushed gold vermeil',
-    description: 'A sculptural cuff with rounded edges, warm reflection, and a comfortable open fit.',
-    image:
-      'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=720&q=85',
-  },
-]
+export const collectionItems = catalogProducts
 
 export const aboutStats = [
   { value: '18+', label: 'Years of craft' },
@@ -138,22 +78,34 @@ export const videoPreview = {
 
 export const categories = [
   {
-    name: 'Rings',
-    icon: GiDiamondRing,
-    image:
-      'https://images.unsplash.com/photo-1589674781759-c21c37956a44?auto=format&fit=crop&w=420&q=85',
+    name: 'Earrings',
+    slug: 'earrings',
+    icon: GiEarrings,
+    image: catalogProducts.find((product) => product.category === 'Earrings')?.image,
   },
   {
     name: 'Necklaces',
+    slug: 'necklaces',
     icon: GiNecklaceDisplay,
-    image:
-      'https://images.unsplash.com/photo-1611085583191-a3b181a88401?auto=format&fit=crop&w=420&q=85',
+    image: catalogProducts.find((product) => product.category === 'Necklaces')?.image,
   },
   {
     name: 'Bracelets',
-    icon: GiEarrings,
-    image:
-      'https://images.unsplash.com/photo-1608042314453-ae338d80c427?auto=format&fit=crop&w=420&q=85',
+    slug: 'bracelets',
+    icon: GiDiamondRing,
+    image: catalogProducts.find((product) => product.category === 'Bracelets')?.image,
+  },
+  {
+    name: 'Hair Accessories',
+    slug: 'hair-accessories',
+    icon: PiSparkleFill,
+    image: catalogProducts.find((product) => product.category === 'Hair Accessories')?.image,
+  },
+  {
+    name: 'Mangalsutras',
+    slug: 'mangalsutras',
+    icon: GiNecklaceDisplay,
+    image: catalogProducts.find((product) => product.category === 'Mangalsutras')?.image,
   },
 ]
 

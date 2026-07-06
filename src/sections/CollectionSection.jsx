@@ -22,7 +22,7 @@ function CollectionSection() {
           </FadeIn>
 
           <div className="grid gap-5 md:grid-cols-3">
-            {collectionItems.map((product) => (
+            {collectionItems.slice(0, 3).map((product) => (
               <ProductCard key={product.name} product={product} />
             ))}
           </div>

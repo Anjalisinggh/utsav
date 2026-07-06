@@ -6,7 +6,7 @@ import SectionHeader from '../components/Common/SectionHeader'
 import ProductCard from '../components/Collection/ProductCard'
 
 function CollectionPage({ categorySlug }) {
-  const selectedCategory = categories.find((category) => category.name.toLowerCase() === categorySlug)
+  const selectedCategory = categories.find((category) => category.slug === categorySlug)
   const visibleProducts = selectedCategory
     ? collectionItems.filter((product) => product.category.toLowerCase() === selectedCategory.name.toLowerCase())
     : collectionItems
@@ -41,7 +41,7 @@ function CollectionPage({ categorySlug }) {
               {categories.map((category) => (
                 <a
                   key={category.name}
-                  href={`/collections/${category.name.toLowerCase()}`}
+                  href={`/collections/${category.slug}`}
                   className={`rounded-full border px-5 py-3 text-xs font-bold transition hover:-translate-y-0.5 ${
                     selectedCategory?.name === category.name
                       ? 'border-espresso bg-espresso text-white'
