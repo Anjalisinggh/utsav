@@ -5,6 +5,7 @@ import PageHero from '../components/Common/PageHero'
 import PrimaryButton from '../components/Common/PrimaryButton'
 import SectionHeader from '../components/Common/SectionHeader'
 import ProductCard from '../components/Collection/ProductCard'
+import categoriesHeroImage from '../assests/categories-hero.png'
 
 function CategoriesPage({ categorySlug }) {
   const selectedCategory = categories.find((category) => category.slug === categorySlug)
@@ -18,7 +19,7 @@ function CategoriesPage({ categorySlug }) {
         eyebrow="Jewelry Categories"
         title="Discover your signature glow."
         text="Circular forms, soft reflections, and warm metal tones make every category feel considered."
-        image={categories[0].image}
+        image={categoriesHeroImage}
       />
 
       <section className="py-16 sm:py-24">
