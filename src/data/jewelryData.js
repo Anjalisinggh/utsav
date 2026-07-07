@@ -13,6 +13,20 @@ import { IoGiftOutline } from 'react-icons/io5'
 import { PiSparkleFill } from 'react-icons/pi'
 import { catalogProducts } from './catalogProducts'
 
+const hiddenCatalogIds = new Set([492497750, 491089276, 492496903, 485162877, 495545763, 495994033, 487959814, 482723062, 485162655, 489554589, 485162460, 486849047, 485304100, 492399043])
+
+function uniqueByCatalog(products) {
+  const seen = new Set()
+
+  return products.filter((product) => {
+    if (hiddenCatalogIds.has(Number(product.id))) return false
+    const key = `${product.id}-${product.slug}`
+    if (seen.has(key)) return false
+    seen.add(key)
+    return true
+  })
+}
+
 export const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'About Us', href: '/about' },
@@ -57,7 +71,7 @@ export const aboutImages = {
     'https://images.unsplash.com/photo-1600721391776-b5cd0e0048f9?auto=format&fit=crop&w=640&q=85',
 }
 
-export const collectionItems = catalogProducts
+export const collectionItems = uniqueByCatalog(catalogProducts)
 
 export const aboutStats = [
   { value: '18+', label: 'Years of craft' },
@@ -90,10 +104,10 @@ export const categories = [
     image: catalogProducts.find((product) => product.category === 'Necklaces')?.image,
   },
   {
-    name: 'Bracelets',
-    slug: 'bracelets',
+    name: 'Bangles',
+    slug: 'bangles',
     icon: GiDiamondRing,
-    image: catalogProducts.find((product) => product.category === 'Bracelets')?.image,
+    image: catalogProducts.find((product) => product.category === 'Bangles')?.image,
   },
   {
     name: 'Hair Accessories',

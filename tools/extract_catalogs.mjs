@@ -7,7 +7,7 @@ const source = JSON.parse(fs.readFileSync(inputPath, 'utf8'))
 
 const categoryMap = {
   'Earrings & Studs': 'Earrings',
-  'Bangles & Bracelets': 'Bracelets',
+  'Bangles & Bracelets': 'Bangles',
   'Hair Clips & Hair Pins': 'Hair Accessories',
   'Necklaces & Chains': 'Necklaces',
   Mangalsutras: 'Mangalsutras',
@@ -78,7 +78,11 @@ const catalogProducts = (source.catalogs || []).map((catalog, index) => {
   }
 })
 
-const file = `export const catalogProducts = ${JSON.stringify(catalogProducts, null, 2)}\n`
+const uniqueCatalogProducts = Array.from(
+  new Map(catalogProducts.map((product) => [`${product.id}-${product.slug}`, product])).values(),
+)
+
+const file = `export const catalogProducts = ${JSON.stringify(uniqueCatalogProducts, null, 2)}\n`
 
 fs.writeFileSync(outputPath, file)
-console.log(`Wrote ${catalogProducts.length} products to ${outputPath}`)
+console.log(`Wrote ${uniqueCatalogProducts.length} products to ${outputPath}`)

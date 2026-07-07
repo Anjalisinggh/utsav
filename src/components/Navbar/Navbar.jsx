@@ -2,10 +2,16 @@ import { useEffect, useState } from 'react'
 import { FiMenu, FiX } from 'react-icons/fi'
 import { navLinks, sharedIcons } from '../../data/jewelryData'
 
-function Navbar() {
+function Navbar({ activePath = '/' }) {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
   const GemIcon = sharedIcons.gem
+
+  const isActiveLink = (href) => {
+    if (href === '/') return activePath === '/'
+    if (href === '/collections' && activePath.startsWith('/products/')) return true
+    return activePath === href || activePath.startsWith(`${href}/`)
+  }
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16)
@@ -31,17 +37,24 @@ function Navbar() {
         </a>
 
         <div className="hidden items-center gap-1 rounded-full bg-white p-2 shadow-[0_18px_45px_rgba(37,23,11,0.18)] lg:flex">
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="inline-flex items-center gap-1 rounded-full px-5 py-3 text-xs font-bold text-espresso transition hover:bg-cream"
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const active = isActiveLink(link.href)
+
+            return (
+              <a
+                key={link.label}
+                href={link.href}
+                aria-current={active ? 'page' : undefined}
+                className={`inline-flex items-center gap-1 rounded-full px-5 py-3 text-xs font-bold transition ${
+                  active ? 'bg-cream text-espresso shadow-inner' : 'text-espresso hover:bg-cream'
+                }`}
+              >
+                {link.label}
+              </a>
+            )
+          })}
           <a
-            href="mailto:concierge@utsav.test"
+            href="https://wa.me/919820392106" target="_blank" rel="noreferrer"
             className="rounded-full bg-cocoa px-7 py-3 text-xs font-bold text-white transition hover:bg-espresso"
           >
             Contact Us
@@ -60,18 +73,25 @@ function Navbar() {
 
       {open && (
         <div className="luxury-container mt-3 rounded-[1.6rem] bg-white/95 p-4 shadow-2xl backdrop-blur-xl lg:hidden">
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              onClick={() => setOpen(false)}
-              className="block rounded-2xl px-4 py-3 text-sm font-semibold text-espresso hover:bg-cream"
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const active = isActiveLink(link.href)
+
+            return (
+              <a
+                key={link.label}
+                href={link.href}
+                aria-current={active ? 'page' : undefined}
+                onClick={() => setOpen(false)}
+                className={`block rounded-2xl px-4 py-3 text-sm font-semibold transition ${
+                  active ? 'bg-cream text-espresso' : 'text-espresso hover:bg-cream'
+                }`}
+              >
+                {link.label}
+              </a>
+            )
+          })}
           <a
-            href="mailto:concierge@utsav.test"
+            href="https://wa.me/919820392106" target="_blank" rel="noreferrer"
             onClick={() => setOpen(false)}
             className="mt-2 block rounded-full bg-cocoa px-4 py-3 text-center text-sm font-bold text-white hover:bg-espresso"
           >

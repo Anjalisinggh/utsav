@@ -1,8 +1,5 @@
 import { categories, collectionItems, heroImages } from '../data/jewelryData'
-import FadeIn from '../components/Common/FadeIn'
 import PageHero from '../components/Common/PageHero'
-import PrimaryButton from '../components/Common/PrimaryButton'
-import SectionHeader from '../components/Common/SectionHeader'
 import ProductCard from '../components/Collection/ProductCard'
 
 function CollectionPage({ categorySlug }) {
@@ -20,7 +17,7 @@ function CollectionPage({ categorySlug }) {
         image={heroImages.detail}
       />
 
-      <section className="py-16 sm:py-24">
+      <section id="collection-shop" className="scroll-mt-28 py-16 sm:py-24">
         <div className="luxury-container">
           <div className="flex flex-col gap-5 rounded-[2rem] bg-white/70 p-5 shadow-[0_18px_55px_rgba(80,52,25,0.1)] sm:flex-row sm:items-center sm:justify-between">
             <div>
@@ -56,30 +53,9 @@ function CollectionPage({ categorySlug }) {
 
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {visibleProducts.map((product) => (
-              <ProductCard key={product.name} product={product} />
+              <ProductCard key={`${product.id}-${product.slug}`} product={product} />
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className="pb-20 sm:pb-28">
-        <div className="luxury-container grid overflow-hidden rounded-[2rem] bg-espresso text-white shadow-[0_28px_90px_rgba(52,35,20,0.2)] lg:grid-cols-[1fr_0.9fr]">
-          <FadeIn className="flex min-h-full flex-col justify-between p-8 sm:p-12">
-            <SectionHeader
-              eyebrow="Limited Drop"
-              title="The golden hour capsule."
-              text="Warm-toned pieces designed to be worn together: brushed cuffs, fine chain necklaces, and softly reflective rings."
-              tone="light"
-            />
-            <PrimaryButton href="/collections" className="self-start" variant="light">
-              Reserve Pieces
-            </PrimaryButton>
-          </FadeIn>
-          <img
-            src="https://images.unsplash.com/photo-1603974372039-adc49044b6bd?auto=format&fit=crop&w=900&q=85"
-            alt="Luxury jewelry capsule"
-            className="h-full min-h-96 w-full object-cover"
-          />
         </div>
       </section>
     </>

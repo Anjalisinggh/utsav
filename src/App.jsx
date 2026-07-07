@@ -4,6 +4,7 @@ import AboutPage from './pages/AboutPage'
 import CategoriesPage from './pages/CategoriesPage'
 import CollectionPage from './pages/CollectionPage'
 import HomePage from './pages/HomePage'
+import ProductDetailPage from './pages/ProductDetailPage'
 
 const routes = {
   '/': HomePage,
@@ -20,8 +21,29 @@ function App() {
   const [route, setRoute] = useState(getPathname)
 
   const navigate = useCallback((path) => {
+    const currentRoute = getPathname()
+    const scrollTarget = (() => {
+      if (/^\/collections\//.test(path) || (path === '/collections' && currentRoute.startsWith('/collections'))) {
+        return 'collection-shop'
+      }
+
+      if (/^\/categories\//.test(path) || (path === '/categories' && currentRoute.startsWith('/categories'))) {
+        return 'category-shop'
+      }
+
+      return null
+    })()
+
     setRoute(path)
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+
+    window.setTimeout(() => {
+      if (scrollTarget) {
+        document.getElementById(scrollTarget)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        return
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }, 0)
   }, [])
 
   useEffect(() => {
@@ -56,14 +78,16 @@ function App() {
 
   const categoryMatch = route.match(/^\/categories\/(.+)$/)
   const collectionMatch = route.match(/^\/collections\/(.+)$/)
-  const isRoutedPage = Boolean(routes[route] || categoryMatch || collectionMatch)
+  const productMatch = route.match(/^\/products\/([^/]+)\/(.+)$/)
+  const isRoutedPage = Boolean(routes[route] || categoryMatch || collectionMatch || productMatch)
   const ActivePage = routes[route] || HomePage
 
   return (
-    <MainLayout hideNavbar={route === '/' || !isRoutedPage}>
+    <MainLayout hideNavbar={route === '/' || !isRoutedPage} activePath={route}>
       {categoryMatch && <CategoriesPage categorySlug={categoryMatch[1]} />}
       {collectionMatch && <CollectionPage categorySlug={collectionMatch[1]} />}
-      {!categoryMatch && !collectionMatch && <ActivePage />}
+      {productMatch && <ProductDetailPage productId={productMatch[1]} productSlug={productMatch[2]} />}
+      {!categoryMatch && !collectionMatch && !productMatch && <ActivePage />}
     </MainLayout>
   )
 }
