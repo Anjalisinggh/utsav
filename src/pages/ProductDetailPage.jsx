@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react'
+﻿import { useEffect, useState } from 'react'
 import { FiHeart, FiMinus, FiPlus } from 'react-icons/fi'
 import { collectionItems } from '../data/jewelryData'
 import ProductCard from '../components/Collection/ProductCard'
+import { formatPrice } from '../utils/formatPrice'
 
 function ProductDetailPage({ productId, productSlug }) {
   const product =
@@ -41,9 +42,15 @@ function ProductDetailPage({ productId, productSlug }) {
   const relatedProducts = collectionItems
     .filter((item) => item.category === product.category && String(item.id) !== String(product.id))
     .slice(0, 3)
-  const whatsappUrl = 'https://wa.me/919820392106'
-  const ratingValue = Number(product.rating || 4.1)
-  const ratingPercent = Math.min(100, Math.max(0, (ratingValue / 5) * 100))
+  const selectedImage = activeImage || product.image
+  const displayPrice = formatPrice(product)
+  const productImageUrl = selectedImage?.startsWith('http')
+    ? selectedImage
+    : `${window.location.origin}${selectedImage}`
+  const whatsappMessage = encodeURIComponent(
+    `Hello, I am interested in this product:\n\n${product.name}\nPrice: ${displayPrice}\nQuantity: ${quantity}\nDescription: ${product.description}\nImage: ${productImageUrl}`,
+  )
+  const whatsappUrl = `https://wa.me/919820392106?text=${whatsappMessage}`
 
   return (
     <>
@@ -57,9 +64,9 @@ function ProductDetailPage({ productId, productSlug }) {
             <div>
               <div className="relative overflow-hidden rounded-[1.5rem] bg-ivory">
                 <img
-                  src={activeImage || product.image}
+                  src={selectedImage}
                   alt={product.name}
-                  className="aspect-square w-full object-contain"
+                  className="aspect-square w-full object-cover"
                 />
               </div>
 
@@ -97,7 +104,7 @@ function ProductDetailPage({ productId, productSlug }) {
               </div>
 
               <div className="mt-5 flex items-center gap-3">
-                <span className="text-3xl font-bold text-cocoa">{product.price}</span>
+                <span className="text-3xl font-bold text-cocoa">{displayPrice}</span>
               </div>
 
               <p className="mt-5 max-w-xl text-sm leading-7 text-stone-600">{product.description}</p>
@@ -154,56 +161,32 @@ function ProductDetailPage({ productId, productSlug }) {
             <div className="flex flex-wrap justify-center gap-6 border-b border-sand/40 pb-4 text-sm font-bold text-stone-400">
               <span className="text-stone-400">Description</span>
               <span className="text-espresso">Additional Information</span>
-              <span className="text-stone-400">Review</span>
             </div>
 
-            <div className="mt-8 grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
-              <div className="rounded-[1.5rem] bg-ivory/65 p-6 text-center">
-                <p className="font-serif text-5xl font-semibold text-espresso">{ratingValue.toFixed(1)}</p>
-                <p className="mt-1 text-sm font-bold text-stone-500">out of 5</p>
-                <p className="mt-3 text-amber-400">*****</p>
-                <p className="mt-2 text-xs font-semibold text-stone-500">{product.reviewCount || 245} reviews</p>
-              </div>
+            <div className="mt-8">
+              {detailLines.length > 0 ? (
+                <dl className="grid gap-3 text-sm text-stone-600 sm:grid-cols-2">
+                  {detailLines.map((line) => {
+                    const [label, ...valueParts] = line.split(':')
+                    const value = valueParts.join(':').trim()
 
-              <div>
-                {detailLines.length > 0 ? (
-                  <dl className="grid gap-3 text-sm text-stone-600 sm:grid-cols-2">
-                    {detailLines.map((line) => {
-                      const [label, ...valueParts] = line.split(':')
-                      const value = valueParts.join(':').trim()
-
-                      return (
-                        <div key={line} className="rounded-[1rem] border border-sand/30 bg-ivory/45 p-4">
-                          {value ? (
-                            <>
-                              <dt className="font-bold text-cocoa">{label}</dt>
-                              <dd className="mt-1">{value}</dd>
-                            </>
-                          ) : (
-                            <dd>{line}</dd>
-                          )}
-                        </div>
-                      )
-                    })}
-                  </dl>
-                ) : (
-                  <p className="text-sm leading-7 text-stone-600">{product.description}</p>
-                )}
-
-                <div className="mt-8 space-y-3">
-                  {[5, 4, 3, 2, 1].map((star, index) => (
-                    <div key={star} className="grid grid-cols-[3rem_1fr] items-center gap-3 text-xs font-bold text-stone-500">
-                      <span>{star} Star</span>
-                      <span className="h-2 overflow-hidden rounded-full bg-cream">
-                        <span
-                          className="block h-full rounded-full bg-amber-400"
-                          style={{ width: `${Math.max(8, ratingPercent - index * 18)}%` }}
-                        />
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
+                    return (
+                      <div key={line} className="rounded-[1rem] border border-sand/30 bg-ivory/45 p-4">
+                        {value ? (
+                          <>
+                            <dt className="font-bold text-cocoa">{label}</dt>
+                            <dd className="mt-1">{value}</dd>
+                          </>
+                        ) : (
+                          <dd>{line}</dd>
+                        )}
+                      </div>
+                    )
+                  })}
+                </dl>
+              ) : (
+                <p className="text-sm leading-7 text-stone-600">{product.description}</p>
+              )}
             </div>
           </section>
         </div>
@@ -229,3 +212,7 @@ function ProductDetailPage({ productId, productSlug }) {
 }
 
 export default ProductDetailPage
+
+
+
+

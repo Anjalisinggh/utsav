@@ -1,5 +1,6 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { sharedIcons } from '../../data/jewelryData'
+import { formatPrice } from '../../utils/formatPrice'
 
 function ProductCard({ product }) {
   const HeartIcon = sharedIcons.heart
@@ -38,7 +39,7 @@ function ProductCard({ product }) {
         <p className="mt-2 line-clamp-2 min-h-10 text-sm leading-5 text-stone-600">{product.description}</p>
         <div className="mt-4 flex flex-wrap items-center gap-2">
           <span className="inline-flex rounded-full bg-ivory px-4 py-2 text-xs font-bold text-cocoa">
-            {product.price}
+            {formatPrice(product)}
           </span>
           {product.rating && <span className="text-xs font-semibold text-stone-500">{product.rating} rating</span>}
         </div>
@@ -48,3 +49,4 @@ function ProductCard({ product }) {
 }
 
 export default ProductCard
+

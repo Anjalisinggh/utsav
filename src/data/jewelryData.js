@@ -1,4 +1,4 @@
-import {
+﻿import {
   FaGem,
   FaInstagram,
   FaRegHeart,
@@ -14,6 +14,7 @@ import { PiSparkleFill } from 'react-icons/pi'
 import { catalogProducts } from './catalogProducts'
 
 const hiddenCatalogIds = new Set([492497750, 491089276, 492496903, 485162877, 495545763, 495994033, 487959814, 482723062, 485162655, 489554589, 485162460, 486849047, 485304100, 492399043])
+const featuredCatalogIds = [900000101, 900000102, 900000103, 900000104, 900000106, 900000107, 900000105]
 
 function uniqueByCatalog(products) {
   const seen = new Set()
@@ -71,7 +72,15 @@ export const aboutImages = {
     'https://images.unsplash.com/photo-1600721391776-b5cd0e0048f9?auto=format&fit=crop&w=640&q=85',
 }
 
-export const collectionItems = uniqueByCatalog(catalogProducts)
+export const collectionItems = uniqueByCatalog(catalogProducts).sort((a, b) => {
+  const aIndex = featuredCatalogIds.indexOf(Number(a.id))
+  const bIndex = featuredCatalogIds.indexOf(Number(b.id))
+
+  if (aIndex !== -1 && bIndex !== -1) return aIndex - bIndex
+  if (aIndex !== -1) return -1
+  if (bIndex !== -1) return 1
+  return 0
+})
 
 export const aboutStats = [
   { value: '18+', label: 'Years of craft' },
@@ -95,7 +104,7 @@ export const categories = [
     name: 'Earrings',
     slug: 'earrings',
     icon: GiEarrings,
-    image: catalogProducts.find((product) => product.category === 'Earrings')?.image,
+    image: catalogProducts.find((product) => product.id === 900000101)?.image,
   },
   {
     name: 'Necklaces',
@@ -107,13 +116,13 @@ export const categories = [
     name: 'Bangles',
     slug: 'bangles',
     icon: GiDiamondRing,
-    image: catalogProducts.find((product) => product.category === 'Bangles')?.image,
+    image: catalogProducts.find((product) => product.id === 900000104)?.image,
   },
   {
     name: 'Hair Accessories',
     slug: 'hair-accessories',
     icon: PiSparkleFill,
-    image: catalogProducts.find((product) => product.category === 'Hair Accessories')?.image,
+    image: catalogProducts.find((product) => product.id === 900000105)?.image,
   },
   {
     name: 'Mangalsutras',
@@ -136,3 +145,7 @@ export const sharedIcons = {
   heart: FaRegHeart,
   star: FaStar,
 }
+
+
+
+
