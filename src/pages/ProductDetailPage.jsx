@@ -10,10 +10,12 @@ function ProductDetailPage({ productId, productSlug }) {
     collectionItems.find((item) => item.slug === productSlug)
   const [activeImage, setActiveImage] = useState(product?.image || '')
   const [quantity, setQuantity] = useState(1)
+  const [activeTab, setActiveTab] = useState('description')
 
   useEffect(() => {
     setActiveImage(product?.image || '')
     setQuantity(1)
+    setActiveTab('description')
   }, [product?.image])
 
   if (!product) {
@@ -50,7 +52,20 @@ function ProductDetailPage({ productId, productSlug }) {
   const whatsappMessage = encodeURIComponent(
     `Hello, I am interested in this product:\n\n${product.name}\nPrice: ${displayPrice}\nQuantity: ${quantity}\nDescription: ${product.description}\nImage: ${productImageUrl}`,
   )
-  const whatsappUrl = `https://wa.me/919820392106?text=${whatsappMessage}`
+  const whatsappUrl = `https://api.whatsapp.com/send?phone=919820392106&text=${whatsappMessage}`
+  const descriptionCopy = {
+    Earrings: `${product.name} is chosen for everyday elegance with a comfortable feel, polished shine, and a versatile silhouette that works for casual outfits, gifting, and festive dressing.`,
+    Necklaces: `${product.name} adds a graceful focal point with a refined finish, easy styling, and a soft statement look for daily wear or special occasions.`,
+    Bangles: `${product.name} is a delicate wrist accent with a light, elegant finish that pairs beautifully with ethnic looks, western outfits, and layered jewelry styling.`,
+    'Hair Accessories': `${product.name} gives hairstyles a soft finishing touch while keeping the look playful, feminine, and easy to wear through the day.`,
+    Mangalsutras: `${product.name} blends traditional detail with a polished modern look, making it suitable for daily wear, festive dressing, and meaningful gifting.`,
+  }
+  const fullDescription = descriptionCopy[product.category] || product.description
+  const descriptionHighlights = [
+    product.sourceCategory,
+    product.material?.replace(/^[^:]+:\s*/, ''),
+    product.category,
+  ].filter(Boolean)
 
   return (
     <>
@@ -158,13 +173,39 @@ function ProductDetailPage({ productId, productSlug }) {
           </div>
 
           <section className="mt-12 rounded-[2rem] bg-white p-6 shadow-[0_18px_55px_rgba(80,52,25,0.09)] sm:p-8">
-            <div className="flex flex-wrap justify-center gap-6 border-b border-sand/40 pb-4 text-sm font-bold text-stone-400">
-              <span className="text-stone-400">Description</span>
-              <span className="text-espresso">Additional Information</span>
+            <div className="flex flex-wrap justify-center gap-6 border-b border-sand/40 pb-4 text-sm font-bold">
+              <button
+                type="button"
+                onClick={() => setActiveTab('description')}
+                className={activeTab === 'description' ? 'text-espresso' : 'text-stone-400 transition hover:text-cocoa'}
+              >
+                Description
+              </button>
+              <button
+                type="button"
+                onClick={() => setActiveTab('info')}
+                className={activeTab === 'info' ? 'text-espresso' : 'text-stone-400 transition hover:text-cocoa'}
+              >
+                Additional Information
+              </button>
             </div>
 
             <div className="mt-8">
-              {detailLines.length > 0 ? (
+              {activeTab === 'description' ? (
+                <div className="rounded-[1.5rem] border border-sand/30 bg-ivory/45 p-6 sm:p-8">
+                  <p className="max-w-4xl text-base leading-8 text-stone-600">{fullDescription}</p>
+                  <p className="mt-4 max-w-4xl text-sm leading-7 text-stone-500">{product.description}</p>
+                  {descriptionHighlights.length > 0 && (
+                    <div className="mt-6 flex flex-wrap gap-2">
+                      {descriptionHighlights.map((highlight) => (
+                        <span key={highlight} className="rounded-full bg-white px-4 py-2 text-xs font-bold text-cocoa shadow-sm">
+                          {highlight}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ) : detailLines.length > 0 ? (
                 <dl className="grid gap-3 text-sm text-stone-600 sm:grid-cols-2">
                   {detailLines.map((line) => {
                     const [label, ...valueParts] = line.split(':')
@@ -212,6 +253,9 @@ function ProductDetailPage({ productId, productSlug }) {
 }
 
 export default ProductDetailPage
+
+
+
 
 
 

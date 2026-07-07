@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+﻿import { useRef, useState } from 'react'
 import { FaPlay } from 'react-icons/fa'
 import showcaseVideo from '../../assests/earring.mp4'
 import { categories } from '../../data/jewelryData'
@@ -48,10 +48,9 @@ function VideoShowcase() {
             text="Move from subtle daytime polish to candlelit statement pieces with categories designed to layer beautifully."
           />
           <FadeIn delay={0.12} className="mt-8 grid grid-cols-3 gap-3 sm:gap-5">
-            {categories.map((category) => {
-              const Icon = category.icon
-
+            {categories.slice(0, 3).map((category) => {
               return (
+
                 <article
                   key={category.name}
                   className="group rounded-full bg-white/75 p-2 text-center shadow-[0_18px_45px_rgba(80,52,25,0.1)] transition duration-300 hover:-translate-y-2 hover:bg-cream"
@@ -63,7 +62,6 @@ function VideoShowcase() {
                   />
                   <div className="py-4">
                     <h3 className="font-serif text-xl font-semibold text-espresso">{category.name}</h3>
-                    <Icon className="mx-auto mt-2 text-cocoa" />
                   </div>
                 </article>
               )
@@ -76,3 +74,5 @@ function VideoShowcase() {
 }
 
 export default VideoShowcase
+
+

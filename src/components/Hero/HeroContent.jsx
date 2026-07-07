@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+﻿import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { FiArrowRight, FiMenu, FiX } from 'react-icons/fi'
 import { heroImages, navLinks, sharedIcons } from '../../data/jewelryData'
@@ -67,7 +67,7 @@ function HeroContent() {
               </a>
             ))}
             <a
-              href="https://wa.me/919820392106" target="_blank" rel="noreferrer"
+              href="https://api.whatsapp.com/send?phone=919820392106" target="_blank" rel="noreferrer"
               className="rounded-full bg-cocoa px-7 py-3 text-xs font-bold text-white transition hover:bg-espresso"
             >
               Contact Us
@@ -97,7 +97,7 @@ function HeroContent() {
               </a>
             ))}
             <a
-              href="https://wa.me/919820392106" target="_blank" rel="noreferrer"
+              href="https://api.whatsapp.com/send?phone=919820392106" target="_blank" rel="noreferrer"
               onClick={() => setMenuOpen(false)}
               className="mt-2 block rounded-full bg-cocoa px-4 py-3 text-center text-sm font-bold text-white hover:bg-espresso"
             >
@@ -199,3 +199,4 @@ function HeroContent() {
 }
 
 export default HeroContent
+

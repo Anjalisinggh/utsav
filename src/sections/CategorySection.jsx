@@ -1,4 +1,4 @@
-import CategoryCard from '../components/Categories/CategoryCard'
+﻿import CategoryCard from '../components/Categories/CategoryCard'
 import SectionHeader from '../components/Common/SectionHeader'
 import { categories } from '../data/jewelryData'
 
@@ -15,7 +15,7 @@ function CategorySection() {
         />
         <div className="mt-12 grid gap-6 md:grid-cols-3">
           {categories.map((category) => (
-            <a key={category.name} href={`/categories/${category.name.toLowerCase()}`} className="block">
+            <a key={category.name} href={`/collections/${category.slug}`} className="block">
               <CategoryCard category={category} />
             </a>
           ))}
@@ -26,3 +26,4 @@ function CategorySection() {
 }
 
 export default CategorySection
+
