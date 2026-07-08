@@ -83,7 +83,7 @@ export const collectionItems = uniqueByCatalog(catalogProducts).sort((a, b) => {
 })
 
 export const aboutStats = [
-  { value: '18+', label: 'Years of craft' },
+  { value: '2', label: 'Years of craft' },
   { value: '42K', label: 'Pieces delivered' },
   { value: '96%', label: 'Repeat clients' },
 ]

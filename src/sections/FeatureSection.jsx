@@ -6,7 +6,7 @@ function FeatureSection() {
 
   return (
     <section id="features" className="bg-cream/55 py-7 sm:py-8">
-      <div className="luxury-container overflow-hidden rounded-[1.35rem] border border-white/70 bg-white/35 shadow-[0_18px_60px_rgba(80,52,25,0.08)] sm:rounded-[1.75rem]">
+      <div className="luxury-container overflow-hidden sm:rounded-[1.75rem] sm:border sm:border-white/70 sm:bg-white/35 sm:shadow-[0_18px_60px_rgba(80,52,25,0.08)]">
         <div className="feature-marquee flex w-max md:grid md:w-auto md:grid-cols-4">
           {movingItems.map((item, index) => (
             <FeatureCard key={`${item.title}-${index}`} item={item} index={index % featureItems.length} />

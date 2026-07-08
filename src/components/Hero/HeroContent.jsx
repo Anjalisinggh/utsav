@@ -107,15 +107,15 @@ function HeroContent() {
         )}
 
         <div className="flex min-h-0 flex-1 flex-col justify-end gap-4 pb-2 pt-5 sm:gap-10 sm:pb-0 sm:pt-14 lg:grid lg:min-h-[calc(100vh-11rem)] lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-10 lg:pt-6">
-          <div className="flex min-h-0 flex-1 flex-col gap-3 sm:gap-0 lg:max-w-xl lg:justify-center">
-            <div className="flex flex-none items-center px-4 py-4 sm:rounded-none sm:border-0 sm:bg-transparent sm:p-0 lg:flex-1">
+          <div className="flex min-h-0 flex-1 flex-col gap-0 sm:gap-0 lg:max-w-xl lg:justify-center">
+            <div className="flex flex-none items-center px-4 pb-1 pt-4 sm:rounded-none sm:border-0 sm:bg-transparent sm:p-0 lg:flex-1">
               <h1 className="font-serif text-[3.15rem] font-semibold leading-[0.88] drop-shadow-sm sm:text-6xl sm:leading-[0.86] lg:text-[6.9rem]">
                 Our Luxury Collections
               </h1>
             </div>
 
             <div className="flex min-h-0 flex-1 flex-col gap-4 sm:flex-none sm:flex-col sm:justify-center sm:gap-3">
-              <div className="flex flex-1 flex-col justify-center gap-3 px-4 py-4 sm:flex-none sm:rounded-none sm:border-0 sm:bg-transparent sm:p-0">
+              <div className="flex flex-none flex-col gap-3 px-4 pb-4 pt-1 sm:flex-none sm:rounded-none sm:border-0 sm:bg-transparent sm:p-0">
                 <p className="max-w-sm text-sm leading-6 text-white/78 sm:mt-4 sm:leading-7">
                   Refined gold, luminous stones, and heirloom silhouettes designed for everyday ceremony.
                 </p>
@@ -126,7 +126,7 @@ function HeroContent() {
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                className="grid shrink-0 grid-cols-[4.25rem_1fr_auto] items-center gap-3 rounded-[1.1rem] bg-white p-2.5 text-espresso shadow-[0_18px_50px_rgba(37,23,11,0.24)] sm:hidden"
+                className="mt-auto grid shrink-0 grid-cols-[4.25rem_1fr_auto] items-center gap-3 rounded-[1.1rem] bg-white p-2.5 text-espresso shadow-[0_18px_50px_rgba(37,23,11,0.24)] sm:hidden"
               >
                 <img
                   src={heroImages.detail}
@@ -189,6 +189,7 @@ function HeroContent() {
 }
 
 export default HeroContent
+
 
 
 
