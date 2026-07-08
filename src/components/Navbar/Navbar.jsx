@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { FiMenu, FiX } from 'react-icons/fi'
 import { navLinks, sharedIcons } from '../../data/jewelryData'
 
@@ -21,19 +21,19 @@ function Navbar({ activePath = '/' }) {
   }, [])
 
   return (
-    <header className="fixed inset-x-0 top-5 z-50 px-4">
+    <header className="fixed inset-x-0 top-3 z-50 px-3 sm:top-5 sm:px-4">
       <nav
-        className={`luxury-container flex items-center justify-between rounded-[1.6rem] border px-5 py-4 transition duration-300 sm:px-7 ${
+        className={`luxury-container flex items-center justify-between rounded-[1.25rem] border px-3 py-3 transition duration-300 sm:rounded-[1.6rem] sm:px-7 sm:py-4 ${
           scrolled
             ? 'border-white/45 bg-[#8b6642]/70 shadow-[0_22px_70px_rgba(52,35,20,0.18)] backdrop-blur-xl'
             : 'border-white/20 bg-[#8b6642]/34 shadow-[0_18px_55px_rgba(52,35,20,0.12)] backdrop-blur-md'
         }`}
       >
-        <a href="/" className="flex items-center gap-3 text-white drop-shadow-sm">
-          <span className="grid size-11 place-items-center rounded-full bg-white text-cocoa shadow-xl">
+        <a href="/" className="flex items-center gap-2.5 text-white drop-shadow-sm sm:gap-3">
+          <span className="grid size-10 place-items-center rounded-full bg-white text-cocoa shadow-xl sm:size-11">
             <GemIcon className="text-xl" />
           </span>
-          <span className="font-serif text-3xl font-bold leading-none text-white">Utsav</span>
+          <span className="font-serif text-2xl font-bold leading-none text-white sm:text-3xl">Utsav</span>
         </a>
 
         <div className="hidden items-center gap-1 rounded-full bg-white p-2 shadow-[0_18px_45px_rgba(37,23,11,0.18)] lg:flex">
@@ -65,14 +65,14 @@ function Navbar({ activePath = '/' }) {
           type="button"
           aria-label="Toggle navigation"
           onClick={() => setOpen((value) => !value)}
-          className="grid size-12 place-items-center rounded-full bg-white text-espresso shadow-lg lg:hidden"
+          className="grid size-10 place-items-center rounded-full bg-white text-espresso shadow-lg sm:size-12 lg:hidden"
         >
           {open ? <FiX /> : <FiMenu />}
         </button>
       </nav>
 
       {open && (
-        <div className="luxury-container mt-3 rounded-[1.6rem] bg-white/95 p-4 shadow-2xl backdrop-blur-xl lg:hidden">
+        <div className="luxury-container mt-2 rounded-[1.2rem] bg-white/95 p-3 shadow-2xl backdrop-blur-xl lg:hidden">
           {navLinks.map((link) => {
             const active = isActiveLink(link.href)
 
@@ -104,4 +104,5 @@ function Navbar({ activePath = '/' }) {
 }
 
 export default Navbar
+
 

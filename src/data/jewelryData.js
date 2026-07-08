@@ -1,4 +1,4 @@
-﻿import {
+import {
   FaGem,
   FaInstagram,
   FaRegHeart,
@@ -104,31 +104,31 @@ export const categories = [
     name: 'Earrings',
     slug: 'earrings',
     icon: GiEarrings,
-    image: catalogProducts.find((product) => product.id === 900000101)?.image,
+    image: '/images/categories/earrings-category.png',
   },
   {
     name: 'Necklaces',
     slug: 'necklaces',
     icon: GiNecklaceDisplay,
-    image: catalogProducts.find((product) => product.category === 'Necklaces')?.image,
+    image: '/images/categories/necklaces-category.png',
   },
   {
     name: 'Bangles',
     slug: 'bangles',
     icon: GiDiamondRing,
-    image: catalogProducts.find((product) => product.id === 900000104)?.image,
+    image: '/images/categories/bangles-category.png',
   },
   {
     name: 'Hair Accessories',
     slug: 'hair-accessories',
     icon: PiSparkleFill,
-    image: catalogProducts.find((product) => product.id === 900000105)?.image,
+    image: '/images/categories/hair-accessories-category.png',
   },
   {
     name: 'Mangalsutras',
     slug: 'mangalsutras',
     icon: GiNecklaceDisplay,
-    image: catalogProducts.find((product) => product.category === 'Mangalsutras')?.image,
+    image: '/images/categories/mangalsutras-category.png',
   },
 ]
 
@@ -145,6 +145,8 @@ export const sharedIcons = {
   heart: FaRegHeart,
   star: FaStar,
 }
+
+
 
 
 

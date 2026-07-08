@@ -69,30 +69,30 @@ function ProductDetailPage({ productId, productSlug }) {
 
   return (
     <>
-      <section className="px-4 pb-16 pt-32 sm:pt-36">
+      <section className="px-3 pb-12 pt-24 sm:px-4 sm:pb-16 sm:pt-36">
         <div className="luxury-container">
-          <a href="/collections" className="text-sm font-bold text-cocoa transition hover:text-espresso">
+          <a href="/collections" className="inline-flex rounded-full bg-white/70 px-3 py-2 text-xs font-bold text-cocoa shadow-sm transition hover:text-espresso sm:bg-transparent sm:px-0 sm:py-0 sm:text-sm sm:shadow-none">
             Back to Collections
           </a>
 
-          <div className="mt-8 rounded-[2rem] bg-white p-4 shadow-[0_24px_80px_rgba(80,52,25,0.12)] sm:p-6 lg:grid lg:grid-cols-[0.95fr_1.05fr] lg:gap-10 lg:p-8">
+          <div className="mt-4 rounded-[1.35rem] bg-white p-3 shadow-[0_16px_48px_rgba(80,52,25,0.1)] sm:mt-8 sm:rounded-[2rem] sm:p-6 lg:grid lg:grid-cols-[0.95fr_1.05fr] lg:gap-10 lg:p-8">
             <div>
-              <div className="relative overflow-hidden rounded-[1.5rem] bg-ivory">
+              <div className="relative overflow-hidden rounded-[1.1rem] bg-ivory sm:rounded-[1.5rem]">
                 <img
                   src={selectedImage}
                   alt={product.name}
-                  className="aspect-square w-full object-cover"
+                  className="aspect-[4/4.35] w-full object-cover sm:aspect-square"
                 />
               </div>
 
               {galleryImages.length > 1 && (
-                <div className="mt-4 grid grid-cols-4 gap-3">
+                <div className="mobile-scrollbar mt-3 flex gap-2 overflow-x-auto pb-1 sm:mt-4 sm:grid sm:grid-cols-4 sm:gap-3 sm:overflow-visible sm:pb-0">
                   {galleryImages.slice(0, 4).map((image) => (
                     <button
                       key={image}
                       type="button"
                       onClick={() => setActiveImage(image)}
-                      className={`overflow-hidden rounded-[0.9rem] border bg-white p-1 transition hover:-translate-y-0.5 ${
+                      className={`w-16 shrink-0 overflow-hidden rounded-[0.75rem] border bg-white p-1 transition hover:-translate-y-0.5 sm:w-auto sm:rounded-[0.9rem] ${
                         activeImage === image ? 'border-cocoa shadow-[0_12px_28px_rgba(80,52,25,0.16)]' : 'border-sand/40'
                       }`}
                     >
@@ -103,31 +103,31 @@ function ProductDetailPage({ productId, productSlug }) {
               )}
             </div>
 
-            <article className="mt-8 lg:mt-0">
+            <article className="mt-5 lg:mt-0">
               <p className="text-xs font-bold uppercase tracking-[0.28em] text-cocoa">{product.category}</p>
-              <div className="mt-3 flex flex-wrap items-center gap-3">
-                <h1 className="font-serif text-5xl font-semibold leading-[0.95] text-espresso sm:text-6xl">
+              <div className="mt-3 flex flex-wrap items-center gap-2 sm:gap-3">
+                <h1 className="font-serif text-[2.45rem] font-semibold leading-[0.95] text-espresso sm:text-6xl">
                   {product.name}
                 </h1>
                 <span className="rounded-full bg-cream px-3 py-1 text-xs font-bold text-cocoa">In Stock</span>
               </div>
 
-              <div className="mt-4 flex flex-wrap items-center gap-3 text-sm font-semibold text-stone-600">
+              <div className="mt-3 flex flex-wrap items-center gap-2 text-xs font-semibold text-stone-600 sm:mt-4 sm:gap-3 sm:text-sm">
                 <span className="text-amber-400">*****</span>
                 {product.rating && <span>{product.rating} rating</span>}
                 {product.reviewCount > 0 && <span>({product.reviewCount} reviews)</span>}
               </div>
 
               <div className="mt-5 flex items-center gap-3">
-                <span className="text-3xl font-bold text-cocoa">{displayPrice}</span>
+                <span className="text-2xl font-bold text-cocoa sm:text-3xl">{displayPrice}</span>
               </div>
 
-              <p className="mt-5 max-w-xl text-sm leading-7 text-stone-600">{product.description}</p>
+              <p className="mt-4 max-w-xl text-sm leading-6 text-stone-600 sm:mt-5 sm:leading-7">{product.description}</p>
 
-              <div className="mt-7 border-t border-sand/40 pt-6">
+              <div className="mt-5 border-t border-sand/40 pt-5 sm:mt-7 sm:pt-6">
                 <p className="text-sm font-bold text-espresso">Quantity</p>
-                <div className="mt-3 flex flex-wrap items-center gap-3">
-                  <div className="inline-flex items-center rounded-full bg-ivory p-1">
+                <div className="mt-3 grid grid-cols-[1fr_auto] gap-2 sm:flex sm:flex-wrap sm:items-center sm:gap-3">
+                  <div className="col-span-2 inline-flex w-fit items-center rounded-full bg-ivory p-1 sm:col-span-1">
                     <button
                       type="button"
                       aria-label="Decrease quantity"
@@ -150,20 +150,20 @@ function ProductDetailPage({ productId, productSlug }) {
                     href={whatsappUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="rounded-full bg-espresso px-7 py-3 text-sm font-bold text-white transition hover:bg-cocoa"
+                    className="col-span-2 rounded-full bg-espresso px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-cocoa sm:col-span-1 sm:px-7"
                   >
                     Contact Us
                   </a>
                   <a
                     href={`/collections/${categorySlug}`}
-                    className="rounded-full bg-ivory px-7 py-3 text-sm font-bold text-espresso transition hover:bg-cream"
+                    className="rounded-full bg-ivory px-4 py-3 text-center text-sm font-bold leading-tight text-espresso transition hover:bg-cream sm:px-7"
                   >
                     More {product.category}
                   </a>
                   <button
                     type="button"
                     aria-label={`Save ${product.name}`}
-                    className="grid size-11 place-items-center rounded-full border border-sand/60 text-cocoa transition hover:bg-cream"
+                    className="grid size-11 place-items-center justify-self-end rounded-full border border-sand/60 text-cocoa transition hover:bg-cream sm:justify-self-auto"
                   >
                     <FiHeart />
                   </button>
@@ -172,8 +172,8 @@ function ProductDetailPage({ productId, productSlug }) {
             </article>
           </div>
 
-          <section className="mt-12 rounded-[2rem] bg-white p-6 shadow-[0_18px_55px_rgba(80,52,25,0.09)] sm:p-8">
-            <div className="flex flex-wrap justify-center gap-6 border-b border-sand/40 pb-4 text-sm font-bold">
+          <section className="mt-6 rounded-[1.35rem] bg-white p-4 shadow-[0_14px_40px_rgba(80,52,25,0.08)] sm:mt-12 sm:rounded-[2rem] sm:p-8">
+            <div className="grid grid-cols-2 gap-2 border-b border-sand/40 pb-3 text-center text-xs font-bold sm:flex sm:flex-wrap sm:justify-center sm:gap-6 sm:pb-4 sm:text-sm">
               <button
                 type="button"
                 onClick={() => setActiveTab('description')}
@@ -192,8 +192,8 @@ function ProductDetailPage({ productId, productSlug }) {
 
             <div className="mt-8">
               {activeTab === 'description' ? (
-                <div className="rounded-[1.5rem] border border-sand/30 bg-ivory/45 p-6 sm:p-8">
-                  <p className="max-w-4xl text-base leading-8 text-stone-600">{fullDescription}</p>
+                <div className="rounded-[1rem] border border-sand/30 bg-ivory/45 p-4 sm:rounded-[1.5rem] sm:p-8">
+                  <p className="max-w-4xl text-sm leading-7 text-stone-600 sm:text-base sm:leading-8">{fullDescription}</p>
                   <p className="mt-4 max-w-4xl text-sm leading-7 text-stone-500">{product.description}</p>
                   {descriptionHighlights.length > 0 && (
                     <div className="mt-6 flex flex-wrap gap-2">
@@ -240,7 +240,7 @@ function ProductDetailPage({ productId, productSlug }) {
               <p className="text-xs font-bold uppercase tracking-[0.28em] text-cocoa">You May Also Like</p>
               <h2 className="mt-2 font-serif text-4xl font-semibold text-espresso">More from {product.category}</h2>
             </div>
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
               {relatedProducts.map((item) => (
                 <ProductCard key={`${item.id}-${item.slug}`} product={item} />
               ))}
@@ -253,6 +253,10 @@ function ProductDetailPage({ productId, productSlug }) {
 }
 
 export default ProductDetailPage
+
+
+
+
 
 
 

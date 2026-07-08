@@ -1,4 +1,4 @@
-﻿import { motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { FiArrowRight, FiMenu, FiX } from 'react-icons/fi'
 import { heroImages, navLinks, sharedIcons } from '../../data/jewelryData'
@@ -33,7 +33,7 @@ function HeroContent() {
       : String(community.totalUsers)
 
   return (
-    <section id="home" className="relative h-[100dvh] overflow-hidden bg-espresso px-4 py-4 sm:min-h-screen sm:h-auto sm:py-8">
+    <section id="home" className="relative min-h-[100svh] overflow-hidden bg-espresso px-3 py-3 sm:min-h-screen sm:px-4 sm:py-8">
       <img
         src={heroImages.background}
         alt="Luxury jewelry model wearing gold pieces"
@@ -46,7 +46,7 @@ function HeroContent() {
         initial={{ opacity: 0, y: 28 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
-        className="luxury-container relative flex h-full flex-col rounded-[2rem] border border-white/16 bg-white/[0.06] px-4 py-4 text-white shadow-[0_24px_90px_rgba(37,23,11,0.22)] backdrop-blur-[2px] sm:min-h-[calc(100vh-3rem)] sm:px-7 sm:py-7 lg:px-8"
+        className="luxury-container relative flex min-h-[calc(100svh-1.5rem)] flex-col rounded-[1.35rem] border border-white/16 bg-white/[0.06] px-3 py-3 text-white shadow-[0_18px_60px_rgba(37,23,11,0.2)] backdrop-blur-[2px] sm:min-h-[calc(100vh-3rem)] sm:rounded-[2rem] sm:px-7 sm:py-7 lg:px-8"
       >
         <div className="relative flex shrink-0 items-center justify-between gap-4">
           <a href="/" className="flex items-center gap-2.5 sm:gap-3">
@@ -106,15 +106,15 @@ function HeroContent() {
           </div>
         )}
 
-        <div className="flex min-h-0 flex-1 flex-col gap-3 pt-4 sm:gap-10 sm:pt-14 lg:grid lg:min-h-[calc(100vh-11rem)] lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-10 lg:pt-6">
+        <div className="flex min-h-0 flex-1 flex-col justify-end gap-4 pb-2 pt-5 sm:gap-10 sm:pb-0 sm:pt-14 lg:grid lg:min-h-[calc(100vh-11rem)] lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-10 lg:pt-6">
           <div className="flex min-h-0 flex-1 flex-col gap-3 sm:gap-0 lg:max-w-xl lg:justify-center">
             <div className="flex flex-none items-center px-4 py-4 sm:rounded-none sm:border-0 sm:bg-transparent sm:p-0 lg:flex-1">
-              <h1 className="font-serif text-[2.35rem] font-semibold leading-[0.95] drop-shadow-sm sm:text-6xl sm:leading-[0.86] lg:text-[6.9rem]">
+              <h1 className="font-serif text-[3.15rem] font-semibold leading-[0.88] drop-shadow-sm sm:text-6xl sm:leading-[0.86] lg:text-[6.9rem]">
                 Our Luxury Collections
               </h1>
             </div>
 
-            <div className="flex min-h-0 flex-1 flex-col-reverse justify-end gap-28 sm:flex-col sm:justify-center sm:gap-3">
+            <div className="flex min-h-0 flex-col gap-4 sm:flex-col sm:justify-center sm:gap-3">
               <div className="flex flex-col justify-center gap-3 px-4 py-4 sm:rounded-none sm:border-0 sm:bg-transparent sm:p-0">
                 <p className="max-w-sm text-sm leading-6 text-white/78 sm:mt-4 sm:leading-7">
                   Refined gold, luminous stones, and heirloom silhouettes designed for everyday ceremony.
@@ -136,7 +136,7 @@ function HeroContent() {
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                className="grid shrink-0 grid-cols-[4.75rem_1fr_auto] items-center gap-3 rounded-[1.2rem] bg-white p-3 text-espresso shadow-[0_18px_50px_rgba(37,23,11,0.24)] sm:hidden"
+                className="grid shrink-0 grid-cols-[4.25rem_1fr_auto] items-center gap-3 rounded-[1.1rem] bg-white p-2.5 text-espresso shadow-[0_18px_50px_rgba(37,23,11,0.24)] sm:hidden"
               >
                 <img
                   src={heroImages.detail}
@@ -199,4 +199,5 @@ function HeroContent() {
 }
 
 export default HeroContent
+
 

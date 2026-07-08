@@ -19,7 +19,7 @@ function CategoriesPage({ categorySlug }) {
         image={categoriesHeroImage}
       />
 
-      <section className="py-16 sm:py-24">
+      <section className="hidden py-16 sm:block sm:py-24">
         <div className="luxury-container grid overflow-hidden rounded-[2rem] bg-espresso text-white shadow-[0_28px_90px_rgba(52,35,20,0.2)] lg:grid-cols-[1fr_0.9fr]">
           <FadeIn className="flex min-h-full flex-col justify-between p-8 sm:p-12">
             <SectionHeader

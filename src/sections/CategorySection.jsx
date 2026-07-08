@@ -1,10 +1,10 @@
-﻿import CategoryCard from '../components/Categories/CategoryCard'
+import CategoryCard from '../components/Categories/CategoryCard'
 import SectionHeader from '../components/Common/SectionHeader'
 import { categories } from '../data/jewelryData'
 
 function CategorySection() {
   return (
-    <section id="categories" className="py-20 sm:py-28">
+    <section id="categories" className="py-12 sm:py-28">
       <div className="luxury-container">
         <SectionHeader
           align="center"
@@ -13,7 +13,7 @@ function CategorySection() {
           text="Circular forms, soft reflections, and warm metal tones make every category feel considered."
           className="max-w-2xl"
         />
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
+        <div className="mt-7 grid grid-cols-2 gap-3 sm:mt-12 sm:gap-6 md:grid-cols-3">
           {categories.map((category) => (
             <a key={category.name} href={`/collections/${category.slug}`} className="block">
               <CategoryCard category={category} />
@@ -26,4 +26,5 @@ function CategorySection() {
 }
 
 export default CategorySection
+
 

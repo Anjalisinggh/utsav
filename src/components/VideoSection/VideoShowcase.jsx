@@ -1,4 +1,4 @@
-﻿import { useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { FaPlay } from 'react-icons/fa'
 import showcaseVideo from '../../assests/earring.mp4'
 import { categories } from '../../data/jewelryData'
@@ -15,8 +15,8 @@ function VideoShowcase() {
   }
 
   return (
-    <section id="showcase" className="py-6 sm:py-12">
-      <div className="luxury-container grid items-center gap-10 lg:grid-cols-[1.12fr_0.88fr]">
+    <section id="showcase" className="py-10 sm:py-12">
+      <div className="luxury-container grid items-center gap-7 lg:grid-cols-[1.12fr_0.88fr] lg:gap-10">
         <FadeIn className="group relative overflow-hidden rounded-[2rem] shadow-[0_26px_80px_rgba(80,52,25,0.16)]">
           <video
             ref={videoRef}
@@ -47,13 +47,13 @@ function VideoShowcase() {
             title="A shape for every ritual."
             text="Move from subtle daytime polish to candlelit statement pieces with categories designed to layer beautifully."
           />
-          <FadeIn delay={0.12} className="mt-8 grid grid-cols-3 gap-3 sm:gap-5">
+          <FadeIn delay={0.12} className="mt-6 grid grid-cols-3 gap-2 sm:mt-8 sm:gap-5">
             {categories.slice(0, 3).map((category) => {
               return (
 
                 <article
                   key={category.name}
-                  className="group rounded-full bg-white/75 p-2 text-center shadow-[0_18px_45px_rgba(80,52,25,0.1)] transition duration-300 hover:-translate-y-2 hover:bg-cream"
+                  className="group rounded-[999px] bg-white/82 p-1.5 text-center shadow-[0_12px_34px_rgba(80,52,25,0.09)] transition duration-300 hover:-translate-y-2 hover:bg-cream sm:p-2 sm:shadow-[0_18px_45px_rgba(80,52,25,0.1)]"
                 >
                   <img
                     src={category.image}
@@ -61,7 +61,7 @@ function VideoShowcase() {
                     className="mx-auto aspect-square w-full rounded-full object-cover transition duration-500 group-hover:scale-95"
                   />
                   <div className="py-4">
-                    <h3 className="font-serif text-xl font-semibold text-espresso">{category.name}</h3>
+                    <h3 className="font-serif text-base font-semibold text-espresso sm:text-xl">{category.name}</h3>
                   </div>
                 </article>
               )
@@ -74,5 +74,6 @@ function VideoShowcase() {
 }
 
 export default VideoShowcase
+
 
 
