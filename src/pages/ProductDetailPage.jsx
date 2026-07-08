@@ -46,11 +46,9 @@ function ProductDetailPage({ productId, productSlug }) {
     .slice(0, 3)
   const selectedImage = activeImage || product.image
   const displayPrice = formatPrice(product)
-  const productImageUrl = selectedImage?.startsWith('http')
-    ? selectedImage
-    : `${window.location.origin}${selectedImage}`
+  const productPageUrl = window.location.href
   const whatsappMessage = encodeURIComponent(
-    `Hello, I am interested in this product:\n\n${product.name}\nPrice: ${displayPrice}\nQuantity: ${quantity}\nDescription: ${product.description}\nImage: ${productImageUrl}`,
+    `Hello, I am interested in this product:\n\n${product.name}\nPrice: ${displayPrice}\nQuantity: ${quantity}\nDescription: ${product.description}\nProduct Link: ${productPageUrl}`,
   )
   const whatsappUrl = `https://api.whatsapp.com/send?phone=919820392106&text=${whatsappMessage}`
   const descriptionCopy = {
@@ -253,6 +251,8 @@ function ProductDetailPage({ productId, productSlug }) {
 }
 
 export default ProductDetailPage
+
+
 
 
 

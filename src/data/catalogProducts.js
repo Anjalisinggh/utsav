@@ -1996,6 +1996,72 @@
     "meeshoUrl": ""
   },
   {
+    "id": 900000108,
+    "productId": "utsav-golden-jellyfish-earrings",
+    "slug": "golden-jellyfish-earrings",
+    "name": "Golden Jellyfish Earrings",
+    "price": "₹169",
+    "priceValue": 169,
+    "originalPrice": null,
+    "category": "Earrings",
+    "sourceCategory": "Earrings & Studs",
+    "material": "Base Metal: Alloy",
+    "description": "Sculptural gold-tone jellyfish earrings with fluid drop details and a polished finish.",
+    "details": "Base Metal: Alloy\nPlating: Gold Plated\nSizing: Non-Adjustable\nStone Type: No Stone\nType: Drop Earrings\nNet Quantity (N): 2\n\nDispatch: 2-2 Days",
+    "image": "/images/products/golden-jellyfish-earrings-card.png",
+    "images": [
+      "/images/products/golden-jellyfish-earrings-card.png",
+      "/images/products/golden-jellyfish-earrings-model.png"
+    ],
+    "rating": "4.8",
+    "reviewCount": 198,
+    "discountText": "",
+    "meeshoUrl": ""
+  },
+  {
+    "id": 900000109,
+    "productId": "utsav-golden-leaf-drop-earrings",
+    "slug": "golden-leaf-drop-earrings",
+    "name": "Golden Leaf Drop Earrings",
+    "price": "₹169",
+    "priceValue": 169,
+    "originalPrice": null,
+    "category": "Earrings",
+    "sourceCategory": "Earrings & Studs",
+    "material": "Base Metal: Alloy",
+    "description": "Gold-tone leaf drop earrings with a sculptural petal finish and statement shine.",
+    "details": "Base Metal: Alloy\nPlating: Gold Plated\nSizing: Non-Adjustable\nStone Type: No Stone\nType: Drop Earrings\nNet Quantity (N): 2\n\nDispatch: 2-2 Days",
+    "image": "/images/products/golden-jellyfish-earrings-leaf-card.png",
+    "images": [
+      "/images/products/golden-jellyfish-earrings-leaf-card.png"
+    ],
+    "rating": "4.8",
+    "reviewCount": 174,
+    "discountText": "",
+    "meeshoUrl": ""
+  },
+  {
+    "id": 900000110,
+    "productId": "utsav-golden-ginkgo-earrings",
+    "slug": "golden-ginkgo-earrings",
+    "name": "Golden Ginkgo Earrings",
+    "price": "₹169",
+    "priceValue": 169,
+    "originalPrice": null,
+    "category": "Earrings",
+    "sourceCategory": "Earrings & Studs",
+    "material": "Base Metal: Alloy",
+    "description": "Polished gold-tone ginkgo leaf earrings with a soft fan silhouette.",
+    "details": "Base Metal: Alloy\nPlating: Gold Plated\nSizing: Non-Adjustable\nStone Type: No Stone\nType: Stud Earrings\nNet Quantity (N): 2\n\nDispatch: 2-2 Days",
+    "image": "/images/products/golden-jellyfish-earrings-ginkgo.png",
+    "images": [
+      "/images/products/golden-jellyfish-earrings-ginkgo.png"
+    ],
+    "rating": "4.8",
+    "reviewCount": 168,
+    "discountText": "",
+    "meeshoUrl": ""
+  },  {
     "id": 900000105,
     "productId": "utsav-pink-daisy-claw",
     "slug": "pink-daisy-flower-hair-claw",
@@ -2018,12 +2084,3 @@
     "meeshoUrl": ""
   }
 ]
-
-
-
-
-
-
-
-
-
