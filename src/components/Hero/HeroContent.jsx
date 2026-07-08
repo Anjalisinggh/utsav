@@ -114,21 +114,11 @@ function HeroContent() {
               </h1>
             </div>
 
-            <div className="flex min-h-0 flex-col gap-4 sm:flex-col sm:justify-center sm:gap-3">
-              <div className="flex flex-col justify-center gap-3 px-4 py-4 sm:rounded-none sm:border-0 sm:bg-transparent sm:p-0">
+            <div className="flex min-h-0 flex-1 flex-col gap-4 sm:flex-none sm:flex-col sm:justify-center sm:gap-3">
+              <div className="flex flex-1 flex-col justify-center gap-3 px-4 py-4 sm:flex-none sm:rounded-none sm:border-0 sm:bg-transparent sm:p-0">
                 <p className="max-w-sm text-sm leading-6 text-white/78 sm:mt-4 sm:leading-7">
                   Refined gold, luminous stones, and heirloom silhouettes designed for everyday ceremony.
                 </p>
-                <a
-                  href="/categories"
-                  aria-label="Open collections"
-                  className="inline-flex w-fit items-center gap-3 rounded-full bg-white px-7 py-2 text-sm font-bold text-espresso shadow-[0_18px_45px_rgba(37,23,11,0.18)] transition hover:-translate-y-0.5 hover:bg-ivory sm:mt-4"
-                >
-                  <span>Let&apos;s Get Started</span>
-                  <span className="grid size-10 place-items-center rounded-full text-xl">
-                    <FiArrowRight />
-                  </span>
-                </a>
               </div>
 
               <motion.a
@@ -199,5 +189,6 @@ function HeroContent() {
 }
 
 export default HeroContent
+
 
 

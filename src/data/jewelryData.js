@@ -104,31 +104,31 @@ export const categories = [
     name: 'Earrings',
     slug: 'earrings',
     icon: GiEarrings,
-    image: '/images/categories/earrings-category.png',
+    image: '/images/categories/earrings-category.png?v=2',
   },
   {
     name: 'Necklaces',
     slug: 'necklaces',
     icon: GiNecklaceDisplay,
-    image: '/images/categories/necklaces-category.png',
+    image: '/images/categories/necklaces-category.png?v=2',
   },
   {
     name: 'Bangles',
     slug: 'bangles',
     icon: GiDiamondRing,
-    image: '/images/categories/bangles-category.png',
+    image: '/images/categories/bangles-category.png?v=2',
   },
   {
     name: 'Hair Accessories',
     slug: 'hair-accessories',
     icon: PiSparkleFill,
-    image: '/images/categories/hair-accessories-category.png',
+    image: '/images/categories/hair-accessories-category.png?v=2',
   },
   {
     name: 'Mangalsutras',
     slug: 'mangalsutras',
     icon: GiNecklaceDisplay,
-    image: '/images/categories/mangalsutras-category.png',
+    image: '/images/categories/mangalsutras-category.png?v=2',
   },
 ]
 
@@ -145,6 +145,7 @@ export const sharedIcons = {
   heart: FaRegHeart,
   star: FaStar,
 }
+
 
 
 
