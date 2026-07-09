@@ -9,9 +9,9 @@ function AboutPage() {
   return (
     <>
       <PageHero
-        eyebrow="About Utsav"
-        title="Jewelry shaped by patience, light, and restraint."
-        text="Our studio creates modern heirlooms with quiet silhouettes, warm materials, and the precision of traditional hand finishing."
+        eyebrow="Maison Utsav"
+        title="A quieter language of adornment."
+        text="Utsav is built around pieces that feel personal: warm in tone, precise in detail, and considered enough to become part of a daily ritual."
         image={aboutImages.editorial}
       />
 
@@ -33,8 +33,8 @@ function AboutPage() {
           <div>
             <SectionHeader
               eyebrow="Our Atelier"
-              title="An editorial approach to everyday heirlooms."
-              text="Utsav began with a simple idea: fine jewelry should feel intimate, wearable, and visually calm without losing its sense of occasion."
+              title="Made for the moments between occasions."
+              text="Our work begins with restraint: a curve, a glint, a proportion that feels right. Each piece is selected to bring polish without excess."
             />
             <FadeIn delay={0.12} className="mt-8 space-y-4">
               {atelierValues.map((value) => (
@@ -67,9 +67,9 @@ function AboutPage() {
         <div className="luxury-container">
           <SectionHeader
             align="center"
-            eyebrow="What We Protect"
-            title="The quiet details matter."
-            text="From shipping to packaging to quality control, every touchpoint is designed to feel refined and considered."
+            eyebrow="Our Standard"
+            title="Nothing leaves unfinished."
+            text="From the first look to the final clasp, every touchpoint is handled with the same care as the piece itself."
             className="max-w-2xl"
           />
           <div className="mt-12 grid justify-items-center gap-3 md:grid-cols-4 md:justify-items-stretch md:gap-0">

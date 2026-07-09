@@ -44,23 +44,23 @@ export const heroImages = {
 
 export const featureItems = [
   {
-    title: 'Free Shipping',
-    text: 'Complimentary insured delivery for every signature piece.',
+    title: 'Complimentary Delivery',
+    text: 'Every order is prepared with care and delivered at no additional charge.',
     icon: FaShippingFast,
   },
   {
-    title: 'Exclusive Design',
-    text: 'Sculptural silhouettes crafted in limited seasonal drops.',
+    title: 'Limited Editions',
+    text: 'A focused edit of silhouettes selected in small, intentional quantities.',
     icon: PiSparkleFill,
   },
   {
-    title: 'Good Packaging',
-    text: 'Keepsake boxes wrapped with soft suede and warm foil detail.',
+    title: 'Considered Packaging',
+    text: 'Each piece arrives in a keepsake presentation made for gifting or safekeeping.',
     icon: IoGiftOutline,
   },
   {
-    title: 'Highest Quality',
-    text: 'Ethically sourced stones finished by master goldsmiths.',
+    title: 'Finished With Care',
+    text: 'Metals, stones, and clasps are checked by hand before they leave our studio.',
     icon: FaShieldAlt,
   },
 ]
@@ -83,15 +83,15 @@ export const collectionItems = uniqueByCatalog(catalogProducts).sort((a, b) => {
 })
 
 export const aboutStats = [
-  { value: '2', label: 'Years of craft' },
-  { value: '42K', label: 'Pieces delivered' },
-  { value: '96%', label: 'Repeat clients' },
+  { value: '2', label: 'Years in craft' },
+  { value: '42K', label: 'Pieces chosen' },
+  { value: '96%', label: 'Return clientele' },
 ]
 
 export const atelierValues = [
-  'Hand-finished metals with softly polished edges.',
-  'Small-batch releases designed to avoid overproduction.',
-  'Ethically sourced stones selected for warmth and clarity.',
+  'Metals are selected for warmth, polish, and a comfortable finish against the skin.',
+  'Small-batch selections keep the collection focused, fresh, and personal.',
+  'Stones and accents are chosen for tone, proportion, and quiet luminosity.',
 ]
 
 export const videoPreview = {

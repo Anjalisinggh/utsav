@@ -43,9 +43,9 @@ function VideoShowcase() {
 
         <div>
           <SectionHeader
-            eyebrow="Choose The Type"
-            title="A shape for every ritual."
-            text="Move from subtle daytime polish to candlelit statement pieces with categories designed to layer beautifully."
+            eyebrow="The Language of Form"
+            title="Silhouettes for every hour."
+            text="Begin with a quiet glint for the day, then layer into pieces with more presence after dark."
           />
           <FadeIn delay={0.12} className="mt-6 grid grid-cols-3 gap-2 sm:mt-8 sm:gap-5">
             {categories.slice(0, 3).map((category) => {

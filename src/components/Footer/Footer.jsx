@@ -18,9 +18,9 @@ function Footer() {
     try {
       await api.subscribeNewsletter(email.trim())
       setEmail('')
-      setMessage('Subscribed successfully.')
+      setMessage('You are on the private list.')
     } catch {
-      setMessage('Try again when the API is running.')
+      setMessage('We could not add you just now. Please try again shortly.')
     } finally {
       setIsSubmitting(false)
     }
@@ -33,7 +33,7 @@ function Footer() {
           <div>
             <h2 className="font-serif text-4xl font-semibold text-white">Utsav</h2>
             <p className="mt-5 max-w-sm text-sm leading-7 text-cream/70">
-              Modern heirloom jewelry with warm metals, delicate stones, and polished editorial restraint.
+              Jewelry for intimate rituals, evening plans, and the small moments that deserve a little ceremony.
             </p>
             <div className="mt-6 flex gap-3">
               {socialLinks.map((social) => {
@@ -58,9 +58,9 @@ function Footer() {
             <h3 className="mb-4 text-sm font-bold uppercase tracking-[0.24em] text-white">Explore</h3>
             {[
               { label: 'Collections', href: '/collections' },
-              { label: 'About Us', href: '/about' },
+              { label: 'Maison Utsav', href: '/about' },
               { label: 'Categories', href: '/categories' },
-              { label: 'Video Showcase', href: '/' },
+              { label: 'The Edit in Motion', href: '/' },
             ].map((item) => (
               <a key={item.label} href={item.href} className="mb-3 block text-sm text-cream/70 transition hover:text-white">
                 {item.label}
@@ -83,8 +83,8 @@ function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-4 text-sm font-bold uppercase tracking-[0.24em] text-white">Newsletter</h3>
-            <p className="text-sm leading-7 text-cream/70">Private previews, styling notes, and early access to limited pieces.</p>
+            <h3 className="mb-4 text-sm font-bold uppercase tracking-[0.24em] text-white">Private List</h3>
+            <p className="text-sm leading-7 text-cream/70">Quiet previews, styling notes, and first access to the pieces we release in small numbers.</p>
             <form onSubmit={handleNewsletterSubmit} className="mt-5 flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
               <input
                 type="email"
@@ -97,7 +97,7 @@ function Footer() {
                 className="min-h-12 flex-1 rounded-full border border-white/15 bg-white/10 px-5 text-sm text-white outline-none placeholder:text-cream/55 focus:border-sand"
               />
               <PrimaryButton type="submit" className="min-h-12 px-5 py-2" variant="light">
-                {isSubmitting ? 'Joining...' : 'Join'}
+                {isSubmitting ? 'Joining' : 'Request Access'}
               </PrimaryButton>
             </form>
             {message && <p className="mt-3 text-xs font-semibold text-sand">{message}</p>}
@@ -105,8 +105,8 @@ function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-cream/55 sm:flex-row sm:items-center sm:justify-between">
-          <p>(c) 2026 Utsav. All rights reserved.</p>
-          <p>Privacy Policy - Terms of Service</p>
+          <p>&copy; 2026 Utsav. All rights reserved.</p>
+          <p>Privacy Policy / Terms of Service</p>
         </div>
       </div>
     </footer>

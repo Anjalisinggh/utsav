@@ -11,9 +11,9 @@ function CollectionPage({ categorySlug }) {
   return (
     <>
       <PageHero
-        eyebrow="The Collection"
-        title="A complete edit of luminous essentials."
-        text="Browse sculptural rings, fluid necklaces, and polished finishing pieces built for layering, gifting, and collecting."
+        eyebrow="The Utsav Edit"
+        title="Jewelry selected with restraint and feeling."
+        text="Explore warm gold tones, delicate stones, and considered silhouettes made for the moments you keep returning to."
         image={heroImages.detail}
       />
 
@@ -21,8 +21,8 @@ function CollectionPage({ categorySlug }) {
         <div className="luxury-container">
           <div className="rounded-[1.35rem] bg-white/82 p-4 shadow-[0_14px_42px_rgba(80,52,25,0.09)] sm:flex sm:flex-row sm:items-center sm:justify-between sm:gap-5 sm:rounded-[2rem] sm:p-5">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.28em] text-cocoa">Shop By Category</p>
-              <h2 className="mt-1 font-serif text-3xl font-semibold text-espresso sm:mt-2 sm:text-4xl">New season signatures</h2>
+              <p className="text-xs font-bold uppercase tracking-[0.28em] text-cocoa">Refine the Edit</p>
+              <h2 className="mt-1 font-serif text-3xl font-semibold text-espresso sm:mt-2 sm:text-4xl">Pieces with presence</h2>
             </div>
             <div className="mobile-scrollbar -mx-1 mt-4 flex gap-2 overflow-x-auto px-1 pb-1 sm:mx-0 sm:mt-0 sm:flex-wrap sm:overflow-visible sm:px-0 sm:pb-0">
               <a

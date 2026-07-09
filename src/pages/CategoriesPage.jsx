@@ -13,9 +13,9 @@ function CategoriesPage({ categorySlug }) {
   return (
     <>
       <PageHero
-        eyebrow="Jewelry Categories"
-        title="Discover your signature glow."
-        text="Circular forms, soft reflections, and warm metal tones make every category feel considered."
+        eyebrow="The Collections"
+        title="Begin with the silhouette."
+        text="Each collection is arranged by how it is worn: close to the face, layered at the neckline, or kept as a subtle finishing detail."
         image={categoriesHeroImage}
       />
 
@@ -23,18 +23,18 @@ function CategoriesPage({ categorySlug }) {
         <div className="luxury-container grid overflow-hidden rounded-[2rem] bg-espresso text-white shadow-[0_28px_90px_rgba(52,35,20,0.2)] lg:grid-cols-[1fr_0.9fr]">
           <FadeIn className="flex min-h-full flex-col justify-between p-8 sm:p-12">
             <SectionHeader
-              eyebrow="Layer With Intention"
-              title="Build your signature stack."
-              text="Choose a category first, then browse pieces grouped by metal tone, silhouette, and everyday styling."
+              eyebrow="The Styling Ritual"
+              title="Compose your own balance."
+              text="Move through earrings, necklaces, bangles, and finishing pieces with a clear eye for proportion, shine, and mood."
               tone="light"
             />
             <PrimaryButton href="/collections" className="self-start" variant="light">
-              View Collections
+              Shop the Collections
             </PrimaryButton>
           </FadeIn>
           <img
             src="https://images.unsplash.com/photo-1603974372039-adc49044b6bd?auto=format&fit=crop&w=900&q=85"
-            alt="Luxury jewelry capsule"
+            alt="Editorial jewelry capsule"
             className="h-full min-h-96 w-full object-cover"
           />
         </div>

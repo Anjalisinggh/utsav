@@ -36,7 +36,7 @@ function HeroContent() {
     <section id="home" className="relative min-h-[100svh] overflow-hidden bg-espresso px-3 py-3 sm:min-h-screen sm:px-4 sm:py-8">
       <img
         src={heroImages.background}
-        alt="Luxury jewelry model wearing gold pieces"
+        alt="Utsav jewelry worn with evening styling"
         className="absolute inset-0 h-full w-full object-cover object-[68%_center]"
       />
       <div className="absolute inset-0 bg-[#785634]/70" />
@@ -70,7 +70,7 @@ function HeroContent() {
               href="https://api.whatsapp.com/send?phone=919820392106" target="_blank" rel="noreferrer"
               className="rounded-full bg-cocoa px-7 py-3 text-xs font-bold text-white transition hover:bg-espresso"
             >
-              Contact Us
+              Speak to Concierge
             </a>
           </div>
 
@@ -101,7 +101,7 @@ function HeroContent() {
               onClick={() => setMenuOpen(false)}
               className="mt-2 block rounded-full bg-cocoa px-4 py-3 text-center text-sm font-bold text-white hover:bg-espresso"
             >
-              Contact Us
+              Speak to Concierge
             </a>
           </div>
         )}
@@ -110,14 +110,14 @@ function HeroContent() {
           <div className="flex min-h-0 flex-1 flex-col gap-0 sm:gap-0 lg:max-w-xl lg:justify-center">
             <div className="flex flex-none items-center px-4 pb-1 pt-4 sm:rounded-none sm:border-0 sm:bg-transparent sm:p-0 lg:flex-1">
               <h1 className="font-serif text-[3.15rem] font-semibold leading-[0.88] drop-shadow-sm sm:text-6xl sm:leading-[0.86] lg:text-[6.9rem]">
-                Our Luxury Collections
+                Jewelry with a sense of occasion.
               </h1>
             </div>
 
             <div className="flex min-h-0 flex-1 flex-col gap-4 sm:flex-none sm:flex-col sm:justify-center sm:gap-3">
               <div className="flex flex-none flex-col gap-3 px-4 pb-4 pt-1 sm:flex-none sm:rounded-none sm:border-0 sm:bg-transparent sm:p-0">
                 <p className="max-w-sm text-sm leading-6 text-white/78 sm:mt-4 sm:leading-7">
-                  Refined gold, luminous stones, and heirloom silhouettes designed for everyday ceremony.
+                  Small-batch pieces in warm gold tones, chosen for the quiet rituals that become memories.
                 </p>
               </div>
 
@@ -134,8 +134,8 @@ function HeroContent() {
                   className="h-[4.75rem] w-[4.75rem] rounded-xl object-cover"
                 />
                 <div className="min-w-0">
-                  <p className="font-serif text-xl font-bold leading-tight">Beautiful In Every Detail</p>
-                  <p className="mt-1 text-xs font-semibold text-cocoa">Read More</p>
+                  <p className="font-serif text-xl font-bold leading-tight">The Utsav Edit</p>
+                  <p className="mt-1 text-xs font-semibold text-cocoa">Discover</p>
                 </div>
                 <span className="grid size-8 shrink-0 place-items-center rounded-full border border-stone-200 text-cocoa">
                   <FiArrowRight className="text-sm" />
@@ -149,12 +149,12 @@ function HeroContent() {
               <div className="flex -space-x-3 rounded-full bg-white/28 p-1.5 backdrop-blur-md">
                 {(community.avatars.length > 0
                   ? community.avatars
-                  : [1, 2, 3].map((item) => ({ avatar: `https://i.pravatar.cc/80?img=${item + 23}`, name: 'Happy client' }))
+                  : [1, 2, 3].map((item) => ({ avatar: `https://i.pravatar.cc/80?img=${item + 23}`, name: 'Utsav client' }))
                 ).map((item) => (
                   <img
                     key={item.avatar}
                     src={item.avatar}
-                    alt={item.name || 'Happy client'}
+                    alt={item.name || 'Utsav client'}
                     className="size-12 rounded-full border-2 border-white object-cover"
                   />
                 ))}
@@ -164,7 +164,7 @@ function HeroContent() {
               </div>
               <div>
                 <p className="font-serif text-4xl font-bold leading-none">{formattedUsers}</p>
-                <p className="mt-1 text-sm font-semibold text-white/78">Happy Clients</p>
+                <p className="mt-1 text-sm font-semibold text-white/78">Utsav Clients</p>
               </div>
             </motion.div>
 
@@ -174,8 +174,8 @@ function HeroContent() {
             >
               <img src={heroImages.detail} alt="Gold bracelet detail" className="h-24 w-36 rounded-2xl object-cover" />
               <div>
-                <p className="font-serif text-2xl font-bold leading-6">Beautiful In Every Detail</p>
-                <p className="mt-3 text-sm font-semibold text-cocoa">Read More</p>
+                <p className="font-serif text-2xl font-bold leading-6">The Utsav Edit</p>
+                <p className="mt-3 text-sm font-semibold text-cocoa">Discover</p>
               </div>
               <span className="grid size-8 place-items-center rounded-full border border-stone-200 text-cocoa">
                 <FiArrowRight />
