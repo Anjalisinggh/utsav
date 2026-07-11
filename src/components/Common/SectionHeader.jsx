@@ -19,7 +19,7 @@ function SectionHeader({ eyebrow, title, text, align = 'left', className = '', t
         {title}
       </h2>
       {text && (
-        <p className={`mt-5 max-w-xl text-sm leading-7 sm:text-base ${isLight ? 'text-cream/75' : 'text-stone-600'}`}>
+        <p className={`mt-5 max-w-xl text-sm leading-7 sm:text-base ${isLight ? 'text-cream/75' : 'text-[#5f564d]'}`}>
           {text}
         </p>
       )}

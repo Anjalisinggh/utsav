@@ -1,8 +1,7 @@
-﻿import HeroSection from '../sections/HeroSection'
+import HeroSection from '../sections/HeroSection'
 import FeatureSection from '../sections/FeatureSection'
 import AboutSection from '../sections/AboutSection'
 import CollectionSection from '../sections/CollectionSection'
-import VideoSection from '../sections/VideoSection'
 import CategorySection from '../sections/CategorySection'
 
 function HomePage() {
@@ -12,12 +11,9 @@ function HomePage() {
       <FeatureSection />
       <AboutSection />
       <CollectionSection />
-      <VideoSection />
       <CategorySection />
     </>
   )
 }
 
 export default HomePage
-
-

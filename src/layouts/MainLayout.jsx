@@ -3,7 +3,7 @@ import Footer from '../components/Footer/Footer'
 
 function MainLayout({ children, hideNavbar = false, activePath = '/' }) {
   return (
-    <div className="min-h-screen overflow-hidden bg-stone-50 text-stone-950">
+    <div className="min-h-screen overflow-hidden bg-[#fbf7ef] text-espresso">
       {!hideNavbar && <Navbar activePath={activePath} />}
       <main>{children}</main>
       <Footer />

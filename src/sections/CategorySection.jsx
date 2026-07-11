@@ -4,16 +4,18 @@ import { categories } from '../data/jewelryData'
 
 function CategorySection() {
   return (
-    <section id="categories" className="py-12 sm:py-28">
+    <section id="categories" className="bg-[#f8f3ea] py-16 sm:py-24">
       <div className="luxury-container">
-        <SectionHeader
-          align="center"
-          eyebrow="The Collections"
-          title="Choose the piece that sets the tone."
-          text="From delicate studs to sculptural drops, each category is edited for balance, proportion, and everyday elegance."
-          className="max-w-2xl"
-        />
-        <div className="mt-7 grid grid-cols-2 gap-3 sm:mt-12 sm:gap-6 md:grid-cols-3">
+        <div className="mb-8 flex items-end justify-between gap-5 border-b border-espresso/10 pb-6 sm:mb-10">
+          <SectionHeader
+            eyebrow="Shop by Category"
+            title="Begin with the silhouette."
+            text="Earrings, bangles, necklaces, and finishing pieces arranged with the same editorial restraint as the header."
+            className="max-w-2xl"
+          />
+          <span className="hidden h-px flex-1 bg-cocoa/20 md:block" />
+        </div>
+        <div className="grid grid-cols-2 gap-3 sm:gap-5 md:grid-cols-3 lg:grid-cols-5">
           {categories.map((category) => (
             <a key={category.name} href={`/collections/${category.slug}`} className="block">
               <CategoryCard category={category} />
@@ -26,5 +28,3 @@ function CategorySection() {
 }
 
 export default CategorySection
-
-

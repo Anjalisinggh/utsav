@@ -2,18 +2,32 @@ import FadeIn from './FadeIn'
 
 function PageHero({ eyebrow, title, text, image }) {
   return (
-    <section className="relative flex min-h-[58vh] items-end overflow-hidden px-4 pb-12 pt-28 sm:min-h-screen sm:items-center sm:pb-20 sm:pt-36">
-      <div className="absolute inset-0 bg-cream" />
-      <img src={image} alt="" className="absolute inset-0 h-full w-full object-cover opacity-30" />
-      <div className="absolute inset-0 bg-gradient-to-r from-espresso/78 via-cocoa/42 to-cream/20" />
-      <FadeIn className="luxury-container relative max-w-4xl text-white">
-        <p className="mb-4 text-xs font-bold uppercase tracking-[0.32em] text-cream">{eyebrow}</p>
-        <h1 className="font-serif text-[3.25rem] font-semibold leading-[0.9] sm:text-7xl lg:text-8xl">{title}</h1>
-        <p className="mt-4 max-w-2xl text-sm leading-6 text-cream/90 sm:mt-6 sm:text-base sm:leading-7">{text}</p>
-      </FadeIn>
+    <section className="relative overflow-hidden bg-[#f8f3ea] px-4 py-10 text-espresso sm:py-16">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute left-[-12rem] top-[-12rem] size-[28rem] rounded-full border border-cocoa/10" />
+        <div className="absolute right-[-10rem] top-12 size-[26rem] rounded-full bg-sand/20 blur-3xl" />
+      </div>
+      <div className="luxury-container relative grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+        <FadeIn className="max-w-3xl">
+          <div className="mb-5 flex items-center gap-3 text-[0.68rem] font-bold uppercase tracking-[0.28em] text-cocoa">
+            <span className="h-px w-12 bg-cocoa/45" />
+            {eyebrow}
+          </div>
+          <h1 className="font-serif text-[3.8rem] font-semibold leading-[0.82] text-espresso sm:text-7xl lg:text-8xl">{title}</h1>
+          <p className="mt-6 max-w-2xl text-sm leading-7 text-stone-600 sm:text-base sm:leading-8">{text}</p>
+        </FadeIn>
+
+        <FadeIn delay={0.1} className="relative mx-auto w-full max-w-xl">
+          <div className="absolute inset-6 rounded-t-full border border-cocoa/20 bg-white/55" />
+          <img
+            src={image}
+            alt=""
+            className="relative aspect-[4/3.65] w-full rounded-t-full border border-white/80 object-cover shadow-[0_28px_90px_rgba(80,52,25,0.14)]"
+          />
+        </FadeIn>
+      </div>
     </section>
   )
 }
 
 export default PageHero
-

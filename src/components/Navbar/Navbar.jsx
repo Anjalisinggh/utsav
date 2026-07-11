@@ -1,9 +1,8 @@
-import { useEffect, useState } from 'react'
-import { FiMenu, FiX } from 'react-icons/fi'
+import { useState } from 'react'
+import { FiHeart, FiMenu, FiSearch, FiShoppingBag, FiUser, FiX } from 'react-icons/fi'
 import { navLinks, sharedIcons } from '../../data/jewelryData'
 
 function Navbar({ activePath = '/' }) {
-  const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
   const GemIcon = sharedIcons.gem
 
@@ -13,96 +12,103 @@ function Navbar({ activePath = '/' }) {
     return activePath === href || activePath.startsWith(`${href}/`)
   }
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 16)
-    onScroll()
-    window.addEventListener('scroll', onScroll)
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
-
   return (
-    <header className="fixed inset-x-0 top-3 z-50 px-3 sm:top-5 sm:px-4">
-      <nav
-        className={`luxury-container flex items-center justify-between rounded-[1.25rem] border px-3 py-3 transition duration-300 sm:rounded-[1.6rem] sm:px-7 sm:py-4 ${
-          scrolled
-            ? 'border-white/45 bg-[#8b6642]/70 shadow-[0_22px_70px_rgba(52,35,20,0.18)] backdrop-blur-xl'
-            : 'border-white/20 bg-[#8b6642]/34 shadow-[0_18px_55px_rgba(52,35,20,0.12)] backdrop-blur-md'
-        }`}
-      >
-        <a href="/" className="flex items-center gap-2.5 text-white drop-shadow-sm sm:gap-3">
-          <span className="grid size-10 place-items-center rounded-full bg-white text-cocoa shadow-xl sm:size-11">
-            <GemIcon className="text-xl" />
-          </span>
-          <span className="font-serif text-2xl font-bold leading-none text-white sm:text-3xl">Utsav</span>
-        </a>
+    <header className="relative z-50 bg-[#fbf7ef] text-espresso">
+      <div className="overflow-hidden bg-espresso px-3 py-2 text-center text-[0.54rem] font-bold uppercase tracking-[0.22em] text-cream sm:px-4 sm:text-xs sm:tracking-[0.34em]">
+        <span className="block whitespace-nowrap">Private festive edit now live / complimentary delivery on every order</span>
+      </div>
 
-        <div className="hidden items-center gap-1 rounded-full bg-white p-2 shadow-[0_18px_45px_rgba(37,23,11,0.18)] lg:flex">
-          {navLinks.map((link) => {
-            const active = isActiveLink(link.href)
+      <div className="relative border-b border-espresso/10 bg-[#fbf7ef]/92 backdrop-blur-xl">
+        <div className="luxury-container flex min-h-18 items-center justify-between gap-4 sm:min-h-20">
+          <nav className="hidden items-center gap-7 lg:flex">
+            {navLinks.slice(0, 3).map((link) => {
+              const active = isActiveLink(link.href)
 
-            return (
-              <a
-                key={link.label}
-                href={link.href}
-                aria-current={active ? 'page' : undefined}
-                className={`inline-flex items-center gap-1 rounded-full px-5 py-3 text-xs font-bold transition ${
-                  active ? 'bg-cream text-espresso shadow-inner' : 'text-espresso hover:bg-cream'
-                }`}
-              >
-                {link.label}
-              </a>
-            )
-          })}
-          <a
-            href="https://api.whatsapp.com/send?phone=919820392106" target="_blank" rel="noreferrer"
-            className="rounded-full bg-cocoa px-7 py-3 text-xs font-bold text-white transition hover:bg-espresso"
-          >
-            Contact Us
+              return (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  aria-current={active ? 'page' : undefined}
+                  className={`text-[0.7rem] font-bold uppercase tracking-[0.22em] transition hover:text-cocoa ${
+                    active ? 'text-cocoa' : 'text-espresso/75'
+                  }`}
+                >
+                  {link.label}
+                </a>
+              )
+            })}
+          </nav>
+
+          <a href="/" className="flex items-center gap-2.5 lg:absolute lg:left-1/2 lg:-translate-x-1/2">
+            <span className="grid size-9 place-items-center rounded-full border border-cocoa/25 bg-white text-cocoa shadow-sm sm:size-10">
+              <GemIcon className="text-base" />
+            </span>
+            <span className="font-serif text-3xl font-semibold leading-none tracking-wide text-espresso sm:text-[2rem]">Utsav</span>
           </a>
+
+          <div className="ml-auto hidden items-center gap-4 text-espresso/75 lg:flex">
+            <a href="/collections" aria-label="Search collections" className="transition hover:text-cocoa">
+              <FiSearch />
+            </a>
+            <a href="/about" aria-label="Maison Utsav" className="transition hover:text-cocoa">
+              <FiUser />
+            </a>
+            <a href="/collections" aria-label="Saved pieces" className="transition hover:text-cocoa">
+              <FiHeart />
+            </a>
+            <a
+              href="https://api.whatsapp.com/send?phone=919820392106"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-espresso/18 px-4 py-2 text-[0.68rem] font-bold uppercase tracking-[0.18em] transition hover:border-cocoa hover:text-cocoa"
+            >
+              <FiShoppingBag /> Concierge
+            </a>
+          </div>
+
+          <button
+            type="button"
+            aria-label="Toggle navigation"
+            onClick={() => setOpen((value) => !value)}
+            className="ml-auto grid size-11 place-items-center rounded-full border border-espresso/10 bg-white text-espresso shadow-sm lg:hidden"
+          >
+            {open ? <FiX /> : <FiMenu />}
+          </button>
         </div>
 
-        <button
-          type="button"
-          aria-label="Toggle navigation"
-          onClick={() => setOpen((value) => !value)}
-          className="grid size-10 place-items-center rounded-full bg-white text-espresso shadow-lg sm:size-12 lg:hidden"
-        >
-          {open ? <FiX /> : <FiMenu />}
-        </button>
-      </nav>
+        {open && (
+          <div className="absolute inset-x-3 top-[calc(100%+0.5rem)] z-30 rounded-[1.25rem] border border-espresso/10 bg-white/96 p-4 shadow-2xl backdrop-blur-xl lg:hidden">
+            {navLinks.map((link) => {
+              const active = isActiveLink(link.href)
 
-      {open && (
-        <div className="luxury-container mt-2 rounded-[1.2rem] bg-white/95 p-3 shadow-2xl backdrop-blur-xl lg:hidden">
-          {navLinks.map((link) => {
-            const active = isActiveLink(link.href)
-
-            return (
-              <a
-                key={link.label}
-                href={link.href}
-                aria-current={active ? 'page' : undefined}
-                onClick={() => setOpen(false)}
-                className={`block rounded-2xl px-4 py-3 text-sm font-semibold transition ${
-                  active ? 'bg-cream text-espresso' : 'text-espresso hover:bg-cream'
-                }`}
-              >
-                {link.label}
-              </a>
-            )
-          })}
-          <a
-            href="https://api.whatsapp.com/send?phone=919820392106" target="_blank" rel="noreferrer"
-            onClick={() => setOpen(false)}
-            className="mt-2 block rounded-full bg-cocoa px-4 py-3 text-center text-sm font-bold text-white hover:bg-espresso"
-          >
-            Contact Us
-          </a>
-        </div>
-      )}
+              return (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  aria-current={active ? 'page' : undefined}
+                  onClick={() => setOpen(false)}
+                  className={`block rounded-2xl px-4 py-3 text-sm font-semibold transition ${
+                    active ? 'bg-cream text-espresso' : 'text-espresso hover:bg-cream'
+                  }`}
+                >
+                  {link.label}
+                </a>
+              )
+            })}
+            <a
+              href="https://api.whatsapp.com/send?phone=919820392106"
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => setOpen(false)}
+              className="mt-2 block rounded-full bg-espresso px-4 py-3 text-center text-sm font-bold text-white hover:bg-cocoa"
+            >
+              Speak to Concierge
+            </a>
+          </div>
+        )}
+      </div>
     </header>
   )
 }
 
 export default Navbar
-
-

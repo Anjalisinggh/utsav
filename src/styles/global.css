@@ -20,7 +20,7 @@ body {
   min-width: 320px;
   background:
     radial-gradient(circle at top left, rgba(223, 201, 170, 0.35), transparent 32rem),
-    linear-gradient(180deg, #fbf7ef 0%, #f6efe4 48%, #fbf7ef 100%);
+    linear-gradient(180deg, #fbf7ef 0%, #f8f3ea 48%, #f1eadf 100%);
   font-family: var(--font-sans);
 }
 
@@ -30,8 +30,8 @@ a {
 }
 
 .glass-panel {
-  border: 1px solid rgba(255, 255, 255, 0.42);
-  background: rgba(255, 255, 255, 0.22);
+  border: 1px solid rgba(223, 201, 170, 0.42);
+  background: rgba(255, 253, 248, 0.62);
   box-shadow: 0 24px 70px rgba(80, 52, 25, 0.14);
   backdrop-filter: blur(20px);
 }
@@ -43,7 +43,7 @@ a {
 
 @media (max-width: 640px) {
   body {
-    background: linear-gradient(180deg, #fbf7ef 0%, #f8f1e7 52%, #fbf7ef 100%);
+    background: linear-gradient(180deg, #fbf7ef 0%, #f8f3ea 52%, #f1eadf 100%);
   }
 
   .luxury-container {

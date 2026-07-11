@@ -5,8 +5,8 @@ function FeatureCard({ item, index }) {
 
   return (
     <FadeIn delay={index * 0.08}>
-      <article className="group h-full w-[min(78vw,18rem)] shrink-0 border-stone-200/70 px-6 py-8 text-center transition duration-300 hover:-translate-y-2 hover:bg-white/45 md:w-auto md:border-r last:md:border-r-0">
-        <div className="mx-auto mb-4 hidden size-13 place-items-center rounded-full bg-cream text-cocoa shadow-[inset_0_0_0_1px_rgba(122,86,55,0.16)] transition duration-300 group-hover:bg-espresso group-hover:text-white sm:grid">
+      <article className="group h-full w-[min(78vw,18rem)] shrink-0 border-espresso/10 px-6 py-8 text-center transition duration-300 hover:bg-white/45 md:w-auto md:border-r last:md:border-r-0">
+        <div className="mx-auto mb-4 hidden size-13 place-items-center rounded-full border border-cocoa/20 bg-[#fffdf8] text-cocoa transition duration-300 group-hover:bg-espresso group-hover:text-white sm:grid">
           <Icon className="text-xl" />
         </div>
         <h3 className="font-serif text-2xl font-semibold text-espresso">{item.title}</h3>
@@ -17,5 +17,3 @@ function FeatureCard({ item, index }) {
 }
 
 export default FeatureCard
-
-

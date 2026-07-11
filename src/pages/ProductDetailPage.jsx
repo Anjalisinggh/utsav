@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { FiHeart, FiMinus, FiPlus } from 'react-icons/fi'
 import { collectionItems } from '../data/jewelryData'
 import ProductCard from '../components/Collection/ProductCard'
@@ -20,13 +20,13 @@ function ProductDetailPage({ productId, productSlug }) {
 
   if (!product) {
     return (
-      <section className="px-4 pb-20 pt-36">
-        <div className="luxury-container rounded-[2rem] bg-white p-8 text-center shadow-[0_18px_55px_rgba(80,52,25,0.1)]">
+      <section className="bg-[#f8f3ea] px-4 pb-20 pt-32">
+        <div className="luxury-container border border-espresso/10 bg-[#fffdf8] p-8 text-center shadow-[0_18px_55px_rgba(80,52,25,0.08)]">
           <p className="text-xs font-bold uppercase tracking-[0.28em] text-cocoa">Product Not Found</p>
           <h1 className="mt-3 font-serif text-5xl font-semibold text-espresso">This piece is no longer available.</h1>
           <a
             href="/collections"
-            className="mt-8 inline-flex rounded-full bg-espresso px-7 py-3 text-sm font-bold text-white transition hover:bg-cocoa"
+            className="mt-8 inline-flex rounded-full bg-espresso px-7 py-3 text-sm font-bold uppercase tracking-[0.16em] text-white transition hover:bg-cocoa"
           >
             Back to Collections
           </a>
@@ -67,19 +67,19 @@ function ProductDetailPage({ productId, productSlug }) {
 
   return (
     <>
-      <section className="px-3 pb-12 pt-24 sm:px-4 sm:pb-16 sm:pt-36">
+      <section className="bg-[#f8f3ea] px-3 pb-12 pt-24 sm:px-4 sm:pb-16 sm:pt-32">
         <div className="luxury-container">
-          <a href="/collections" className="inline-flex rounded-full bg-white/70 px-3 py-2 text-xs font-bold text-cocoa shadow-sm transition hover:text-espresso sm:bg-transparent sm:px-0 sm:py-0 sm:text-sm sm:shadow-none">
+          <a href="/collections" className="inline-flex rounded-full border border-espresso/10 bg-[#fffdf8]/80 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-cocoa shadow-sm transition hover:text-espresso sm:bg-[#fffdf8]/70 sm:text-xs">
             Back to Collections
           </a>
 
-          <div className="mt-4 rounded-[1.35rem] bg-white p-3 shadow-[0_16px_48px_rgba(80,52,25,0.1)] sm:mt-8 sm:rounded-[2rem] sm:p-6 lg:grid lg:grid-cols-[0.95fr_1.05fr] lg:gap-10 lg:p-8">
+          <div className="mt-5 border border-espresso/10 bg-[#fffdf8] p-3 shadow-[0_18px_60px_rgba(80,52,25,0.08)] sm:mt-8 sm:p-6 lg:grid lg:grid-cols-[0.95fr_1.05fr] lg:gap-10 lg:p-8">
             <div>
-              <div className="relative overflow-hidden rounded-[1.1rem] bg-ivory sm:rounded-[1.5rem]">
+              <div className="relative overflow-hidden border border-espresso/10 bg-cream/45">
                 <img
                   src={selectedImage}
                   alt={product.name}
-                  className="aspect-[4/4.35] w-full object-cover sm:aspect-square"
+                  className="aspect-[4/4.7] w-full object-cover sm:aspect-[4/4.35]"
                 />
               </div>
 
@@ -90,11 +90,11 @@ function ProductDetailPage({ productId, productSlug }) {
                       key={image}
                       type="button"
                       onClick={() => setActiveImage(image)}
-                      className={`w-16 shrink-0 overflow-hidden rounded-[0.75rem] border bg-white p-1 transition hover:-translate-y-0.5 sm:w-auto sm:rounded-[0.9rem] ${
+                      className={`w-16 shrink-0 overflow-hidden border bg-[#fffdf8] p-1 transition hover:-translate-y-0.5 sm:w-auto ${
                         activeImage === image ? 'border-cocoa shadow-[0_12px_28px_rgba(80,52,25,0.16)]' : 'border-sand/40'
                       }`}
                     >
-                      <img src={image} alt={product.name} className="aspect-square w-full rounded-[0.65rem] object-cover" />
+                      <img src={image} alt={product.name} className="aspect-square w-full object-cover" />
                     </button>
                   ))}
                 </div>
@@ -107,20 +107,20 @@ function ProductDetailPage({ productId, productSlug }) {
                 <h1 className="font-serif text-[2.45rem] font-semibold leading-[0.95] text-espresso sm:text-6xl">
                   {product.name}
                 </h1>
-                <span className="rounded-full bg-cream px-3 py-1 text-xs font-bold text-cocoa">In Stock</span>
+                <span className="rounded-full border border-cocoa/20 bg-cream/60 px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-cocoa">In Stock</span>
               </div>
 
-              <div className="mt-3 flex flex-wrap items-center gap-2 text-xs font-semibold text-stone-600 sm:mt-4 sm:gap-3 sm:text-sm">
+              <div className="mt-3 flex flex-wrap items-center gap-2 text-xs font-semibold text-[#5f564d] sm:mt-4 sm:gap-3 sm:text-sm">
                 <span className="text-amber-400">*****</span>
                 {product.rating && <span>{product.rating} rating</span>}
                 {product.reviewCount > 0 && <span>({product.reviewCount} reviews)</span>}
               </div>
 
               <div className="mt-5 flex items-center gap-3">
-                <span className="text-2xl font-bold text-cocoa sm:text-3xl">{displayPrice}</span>
+                <span className="font-serif text-4xl font-semibold text-cocoa sm:text-5xl">{displayPrice}</span>
               </div>
 
-              <p className="mt-4 max-w-xl text-sm leading-6 text-stone-600 sm:mt-5 sm:leading-7">{product.description}</p>
+              <p className="mt-4 max-w-xl text-sm leading-6 text-[#5f564d] sm:mt-5 sm:leading-7">{product.description}</p>
 
               <div className="mt-5 border-t border-sand/40 pt-5 sm:mt-7 sm:pt-6">
                 <p className="text-sm font-bold text-espresso">Quantity</p>
@@ -148,20 +148,20 @@ function ProductDetailPage({ productId, productSlug }) {
                     href={whatsappUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="col-span-2 rounded-full bg-espresso px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-cocoa sm:col-span-1 sm:px-7"
+                    className="col-span-2 rounded-full bg-espresso px-5 py-3 text-center text-sm font-bold uppercase tracking-[0.16em] text-white transition hover:bg-cocoa sm:col-span-1 sm:px-7"
                   >
-                    Contact Us
+                    Speak to Concierge
                   </a>
                   <a
                     href={`/collections/${categorySlug}`}
-                    className="rounded-full bg-ivory px-4 py-3 text-center text-sm font-bold leading-tight text-espresso transition hover:bg-cream sm:px-7"
+                    className="rounded-full border border-espresso/10 bg-[#fffdf8]/80 px-4 py-3 text-center text-sm font-bold leading-tight text-espresso transition hover:border-cocoa hover:text-cocoa sm:px-7"
                   >
                     More {product.category}
                   </a>
                   <button
                     type="button"
                     aria-label={`Save ${product.name}`}
-                    className="grid size-11 place-items-center justify-self-end rounded-full border border-sand/60 text-cocoa transition hover:bg-cream sm:justify-self-auto"
+                    className="grid size-11 place-items-center justify-self-end rounded-full border border-espresso/15 text-cocoa transition hover:bg-cream sm:justify-self-auto"
                   >
                     <FiHeart />
                   </button>
@@ -170,19 +170,19 @@ function ProductDetailPage({ productId, productSlug }) {
             </article>
           </div>
 
-          <section className="mt-6 rounded-[1.35rem] bg-white p-4 shadow-[0_14px_40px_rgba(80,52,25,0.08)] sm:mt-12 sm:rounded-[2rem] sm:p-8">
+          <section className="mt-6 border border-espresso/10 bg-[#fffdf8] p-4 shadow-[0_14px_40px_rgba(80,52,25,0.06)] sm:mt-12 sm:p-8">
             <div className="grid grid-cols-2 gap-2 border-b border-sand/40 pb-3 text-center text-xs font-bold sm:flex sm:flex-wrap sm:justify-center sm:gap-6 sm:pb-4 sm:text-sm">
               <button
                 type="button"
                 onClick={() => setActiveTab('description')}
-                className={activeTab === 'description' ? 'text-espresso' : 'text-stone-400 transition hover:text-cocoa'}
+                className={activeTab === 'description' ? 'text-espresso' : 'text-[#9a8d7d] transition hover:text-cocoa'}
               >
                 Description
               </button>
               <button
                 type="button"
                 onClick={() => setActiveTab('info')}
-                className={activeTab === 'info' ? 'text-espresso' : 'text-stone-400 transition hover:text-cocoa'}
+                className={activeTab === 'info' ? 'text-espresso' : 'text-[#9a8d7d] transition hover:text-cocoa'}
               >
                 Additional Information
               </button>
@@ -190,13 +190,13 @@ function ProductDetailPage({ productId, productSlug }) {
 
             <div className="mt-8">
               {activeTab === 'description' ? (
-                <div className="rounded-[1rem] border border-sand/30 bg-ivory/45 p-4 sm:rounded-[1.5rem] sm:p-8">
-                  <p className="max-w-4xl text-sm leading-7 text-stone-600 sm:text-base sm:leading-8">{fullDescription}</p>
-                  <p className="mt-4 max-w-4xl text-sm leading-7 text-stone-500">{product.description}</p>
+                <div className="border border-espresso/10 bg-[#fbf7ef] p-4 sm:p-8">
+                  <p className="max-w-4xl text-sm leading-7 text-[#5f564d] sm:text-base sm:leading-8">{fullDescription}</p>
+                  <p className="mt-4 max-w-4xl text-sm leading-7 text-[#7a6c5d]">{product.description}</p>
                   {descriptionHighlights.length > 0 && (
                     <div className="mt-6 flex flex-wrap gap-2">
                       {descriptionHighlights.map((highlight) => (
-                        <span key={highlight} className="rounded-full bg-white px-4 py-2 text-xs font-bold text-cocoa shadow-sm">
+                        <span key={highlight} className="rounded-full border border-espresso/10 bg-[#fffdf8] px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] text-cocoa">
                           {highlight}
                         </span>
                       ))}
@@ -204,13 +204,13 @@ function ProductDetailPage({ productId, productSlug }) {
                   )}
                 </div>
               ) : detailLines.length > 0 ? (
-                <dl className="grid gap-3 text-sm text-stone-600 sm:grid-cols-2">
+                <dl className="grid gap-3 text-sm text-[#5f564d] sm:grid-cols-2">
                   {detailLines.map((line) => {
                     const [label, ...valueParts] = line.split(':')
                     const value = valueParts.join(':').trim()
 
                     return (
-                      <div key={line} className="rounded-[1rem] border border-sand/30 bg-ivory/45 p-4">
+                      <div key={line} className="border border-espresso/10 bg-[#fbf7ef] p-4">
                         {value ? (
                           <>
                             <dt className="font-bold text-cocoa">{label}</dt>
@@ -224,7 +224,7 @@ function ProductDetailPage({ productId, productSlug }) {
                   })}
                 </dl>
               ) : (
-                <p className="text-sm leading-7 text-stone-600">{product.description}</p>
+                <p className="text-sm leading-7 text-[#5f564d]">{product.description}</p>
               )}
             </div>
           </section>
@@ -232,7 +232,7 @@ function ProductDetailPage({ productId, productSlug }) {
       </section>
 
       {relatedProducts.length > 0 && (
-        <section className="pb-20 sm:pb-28">
+        <section className="bg-[#fbf7ef] pb-20 sm:pb-28">
           <div className="luxury-container">
             <div className="mb-8">
               <p className="text-xs font-bold uppercase tracking-[0.28em] text-cocoa">You May Also Like</p>

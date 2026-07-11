@@ -1,35 +1,10 @@
-import { useState } from 'react'
 import { socialLinks } from '../../data/jewelryData'
-import { api } from '../../lib/api'
-import PrimaryButton from '../Common/PrimaryButton'
 
 function Footer() {
-  const [email, setEmail] = useState('')
-  const [message, setMessage] = useState('')
-  const [isSubmitting, setIsSubmitting] = useState(false)
-
-  const handleNewsletterSubmit = async (event) => {
-    event.preventDefault()
-    if (!email.trim() || isSubmitting) return
-
-    setIsSubmitting(true)
-    setMessage('')
-
-    try {
-      await api.subscribeNewsletter(email.trim())
-      setEmail('')
-      setMessage('You are on the private list.')
-    } catch {
-      setMessage('We could not add you just now. Please try again shortly.')
-    } finally {
-      setIsSubmitting(false)
-    }
-  }
-
   return (
     <footer className="bg-espresso px-4 py-14 text-cream sm:py-18">
       <div className="luxury-container">
-        <div className="grid gap-10 lg:grid-cols-[1.1fr_0.7fr_0.7fr_1fr]">
+        <div className="grid gap-10 lg:grid-cols-[1.2fr_0.7fr_0.7fr]">
           <div>
             <h2 className="font-serif text-4xl font-semibold text-white">Utsav</h2>
             <p className="mt-5 max-w-sm text-sm leading-7 text-cream/70">
@@ -60,7 +35,6 @@ function Footer() {
               { label: 'Collections', href: '/collections' },
               { label: 'Maison Utsav', href: '/about' },
               { label: 'Categories', href: '/categories' },
-              { label: 'The Edit in Motion', href: '/' },
             ].map((item) => (
               <a key={item.label} href={item.href} className="mb-3 block text-sm text-cream/70 transition hover:text-white">
                 {item.label}
@@ -80,27 +54,6 @@ function Footer() {
                 {item.label}
               </a>
             ))}
-          </div>
-
-          <div>
-            <h3 className="mb-4 text-sm font-bold uppercase tracking-[0.24em] text-white">Private List</h3>
-            <p className="text-sm leading-7 text-cream/70">Quiet previews, styling notes, and first access to the pieces we release in small numbers.</p>
-            <form onSubmit={handleNewsletterSubmit} className="mt-5 flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
-              <input
-                type="email"
-                value={email}
-                onChange={(event) => {
-                  setEmail(event.target.value)
-                  setMessage('')
-                }}
-                placeholder="Email address"
-                className="min-h-12 flex-1 rounded-full border border-white/15 bg-white/10 px-5 text-sm text-white outline-none placeholder:text-cream/55 focus:border-sand"
-              />
-              <PrimaryButton type="submit" className="min-h-12 px-5 py-2" variant="light">
-                {isSubmitting ? 'Joining' : 'Request Access'}
-              </PrimaryButton>
-            </form>
-            {message && <p className="mt-3 text-xs font-semibold text-sand">{message}</p>}
           </div>
         </div>
 

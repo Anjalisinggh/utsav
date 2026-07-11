@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
-import { FiArrowRight, FiMenu, FiX } from 'react-icons/fi'
-import { heroImages, navLinks, sharedIcons } from '../../data/jewelryData'
+import { FiArrowRight, FiHeart, FiMenu, FiSearch, FiShoppingBag, FiUser, FiX } from 'react-icons/fi'
+import { navLinks, sharedIcons } from '../../data/jewelryData'
 import { api } from '../../lib/api'
 
 function HeroContent() {
@@ -33,44 +33,40 @@ function HeroContent() {
       : String(community.totalUsers)
 
   return (
-    <section id="home" className="relative min-h-[100svh] overflow-hidden bg-espresso px-3 py-3 sm:min-h-screen sm:px-4 sm:py-8">
-      <img
-        src={heroImages.background}
-        alt="Utsav jewelry worn with evening styling"
-        className="absolute inset-0 h-full w-full object-cover object-[68%_center]"
-      />
-      <div className="absolute inset-0 bg-[#785634]/70" />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#76512f]/70 via-[#8d6a45]/38 to-transparent" />
+    <section id="home" className="relative overflow-hidden bg-[#f8f3ea] text-espresso">
+      <div className="overflow-hidden bg-espresso px-3 py-2 text-center text-[0.54rem] font-bold uppercase tracking-[0.22em] text-cream sm:px-4 sm:text-xs sm:tracking-[0.34em]">
+        <span className="block whitespace-nowrap">Private festive edit now live / complimentary delivery on every order</span>
+      </div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 28 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
-        className="luxury-container relative flex min-h-[calc(100svh-1.5rem)] flex-col rounded-[1.35rem] border border-white/16 bg-white/[0.06] px-3 py-3 text-white shadow-[0_18px_60px_rgba(37,23,11,0.2)] backdrop-blur-[2px] sm:min-h-[calc(100vh-3rem)] sm:rounded-[2rem] sm:px-7 sm:py-7 lg:px-8"
-      >
-        <div className="relative flex shrink-0 items-center justify-between gap-4">
-          <a href="/" className="flex items-center gap-2.5 sm:gap-3">
-            <span className="grid size-10 place-items-center rounded-full bg-white text-cocoa shadow-xl sm:size-11">
-              <GemIcon className="text-lg sm:text-xl" />
-            </span>
-            <span className="font-serif text-2xl font-bold leading-none text-white drop-shadow-sm sm:text-3xl">Utsav</span>
-          </a>
-
-          <div className="hidden items-center gap-1 rounded-full bg-white p-2 shadow-[0_18px_45px_rgba(37,23,11,0.22)] lg:flex">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="inline-flex items-center gap-1 rounded-full px-5 py-3 text-xs font-bold text-espresso transition hover:bg-cream"
-              >
+      <div className="relative z-20 border-b border-espresso/10 bg-[#fbf7ef]/92 backdrop-blur-xl">
+        <div className="luxury-container flex min-h-18 items-center justify-between gap-4 sm:min-h-20">
+          <nav className="hidden items-center gap-7 lg:flex">
+            {navLinks.slice(0, 3).map((link) => (
+              <a key={link.label} href={link.href} className="text-[0.7rem] font-bold uppercase tracking-[0.22em] text-espresso/75 transition hover:text-cocoa">
                 {link.label}
               </a>
             ))}
-            <a
-              href="https://api.whatsapp.com/send?phone=919820392106" target="_blank" rel="noreferrer"
-              className="rounded-full bg-cocoa px-7 py-3 text-xs font-bold text-white transition hover:bg-espresso"
-            >
-              Speak to Concierge
+          </nav>
+
+          <a href="/" className="flex items-center gap-2.5 lg:absolute lg:left-1/2 lg:-translate-x-1/2">
+            <span className="grid size-9 place-items-center rounded-full border border-cocoa/25 bg-white text-cocoa shadow-sm sm:size-10">
+              <GemIcon className="text-base" />
+            </span>
+            <span className="font-serif text-3xl font-semibold leading-none tracking-wide text-espresso sm:text-[2rem]">Utsav</span>
+          </a>
+
+          <div className="ml-auto hidden items-center gap-4 text-espresso/75 lg:flex">
+            <a href="/collections" aria-label="Search collections" className="transition hover:text-cocoa">
+              <FiSearch />
+            </a>
+            <a href="/about" aria-label="Maison Utsav" className="transition hover:text-cocoa">
+              <FiUser />
+            </a>
+            <a href="/collections" aria-label="Saved pieces" className="transition hover:text-cocoa">
+              <FiHeart />
+            </a>
+            <a href="https://api.whatsapp.com/send?phone=919820392106" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-espresso/18 px-4 py-2 text-[0.68rem] font-bold uppercase tracking-[0.18em] transition hover:border-cocoa hover:text-cocoa">
+              <FiShoppingBag /> Concierge
             </a>
           </div>
 
@@ -78,14 +74,14 @@ function HeroContent() {
             type="button"
             aria-label="Toggle navigation"
             onClick={() => setMenuOpen((value) => !value)}
-            className="grid size-11 place-items-center rounded-full bg-white text-espresso shadow-lg lg:hidden"
+            className="ml-auto grid size-11 place-items-center rounded-full border border-espresso/10 bg-white text-espresso shadow-sm lg:hidden"
           >
             {menuOpen ? <FiX /> : <FiMenu />}
           </button>
         </div>
 
         {menuOpen && (
-          <div className="absolute inset-x-4 top-[4.5rem] z-20 rounded-[1.35rem] border border-white/16 bg-white/95 p-4 shadow-2xl backdrop-blur-xl lg:hidden">
+          <div className="absolute inset-x-3 top-[calc(100%+0.5rem)] z-30 rounded-[1.25rem] border border-espresso/10 bg-white/96 p-4 shadow-2xl backdrop-blur-xl lg:hidden">
             {navLinks.map((link) => (
               <a
                 key={link.label}
@@ -97,99 +93,76 @@ function HeroContent() {
               </a>
             ))}
             <a
-              href="https://api.whatsapp.com/send?phone=919820392106" target="_blank" rel="noreferrer"
+              href="https://api.whatsapp.com/send?phone=919820392106"
+              target="_blank"
+              rel="noreferrer"
               onClick={() => setMenuOpen(false)}
-              className="mt-2 block rounded-full bg-cocoa px-4 py-3 text-center text-sm font-bold text-white hover:bg-espresso"
+              className="mt-2 block rounded-full bg-espresso px-4 py-3 text-center text-sm font-bold text-white hover:bg-cocoa"
             >
               Speak to Concierge
             </a>
           </div>
         )}
+      </div>
 
-        <div className="flex min-h-0 flex-1 flex-col justify-end gap-4 pb-2 pt-5 sm:gap-10 sm:pb-0 sm:pt-14 lg:grid lg:min-h-[calc(100vh-11rem)] lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-10 lg:pt-6">
-          <div className="flex min-h-0 flex-1 flex-col gap-0 sm:gap-0 lg:max-w-xl lg:justify-center">
-            <div className="flex flex-none items-center px-4 pb-1 pt-4 sm:rounded-none sm:border-0 sm:bg-transparent sm:p-0 lg:flex-1">
-              <h1 className="font-serif text-[3.15rem] font-semibold leading-[0.88] drop-shadow-sm sm:text-6xl sm:leading-[0.86] lg:text-[6.9rem]">
-                Jewelry with a sense of occasion.
-              </h1>
-            </div>
+      <div className="absolute inset-0 pointer-events-none opacity-80">
+        <div className="absolute left-[-15rem] top-16 size-[34rem] rounded-full border border-cocoa/10" />
+        <div className="absolute right-[-10rem] top-12 size-[31rem] rounded-full bg-sand/20 blur-3xl" />
+        <div className="absolute bottom-8 left-1/2 h-px w-[85vw] -translate-x-1/2 bg-gradient-to-r from-transparent via-cocoa/20 to-transparent" />
+      </div>
 
-            <div className="flex min-h-0 flex-1 flex-col gap-4 sm:flex-none sm:flex-col sm:justify-center sm:gap-3">
-              <div className="flex flex-none flex-col gap-3 px-4 pb-4 pt-1 sm:flex-none sm:rounded-none sm:border-0 sm:bg-transparent sm:p-0">
-                <p className="max-w-sm text-sm leading-6 text-white/78 sm:mt-4 sm:leading-7">
-                  Small-batch pieces in warm gold tones, chosen for the quiet rituals that become memories.
-                </p>
-              </div>
-
-              <motion.a
-                href="/categories"
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                className="mt-auto grid shrink-0 grid-cols-[4.25rem_1fr_auto] items-center gap-3 rounded-[1.1rem] bg-white p-2.5 text-espresso shadow-[0_18px_50px_rgba(37,23,11,0.24)] sm:hidden"
-              >
-                <img
-                  src={heroImages.detail}
-                  alt="Gold bracelet detail"
-                  className="h-[4.75rem] w-[4.75rem] rounded-xl object-cover"
-                />
-                <div className="min-w-0">
-                  <p className="font-serif text-xl font-bold leading-tight">The Utsav Edit</p>
-                  <p className="mt-1 text-xs font-semibold text-cocoa">Discover</p>
-                </div>
-                <span className="grid size-8 shrink-0 place-items-center rounded-full border border-stone-200 text-cocoa">
-                  <FiArrowRight className="text-sm" />
-                </span>
-              </motion.a>
-            </div>
+      <motion.div
+        initial={{ opacity: 0, y: 28 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
+        className="luxury-container relative grid min-h-[calc(100svh-5.5rem)] items-center gap-6 py-9 sm:min-h-[calc(100vh-7rem)] sm:py-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-10"
+      >
+        <div className="relative z-10 max-w-3xl">
+          <div className="mb-5 flex flex-wrap items-center gap-3 text-[0.68rem] font-bold uppercase tracking-[0.25em] text-cocoa">
+            <span className="h-px w-12 bg-cocoa/45" />
+            Fine jewellery / small-batch pieces
           </div>
 
-          <div className="relative hidden min-h-[31rem] lg:block">
-            <motion.div className="absolute right-0 top-60 flex items-center gap-6 text-white sm:right-8 lg:right-4">
-              <div className="flex -space-x-3 rounded-full bg-white/28 p-1.5 backdrop-blur-md">
-                {(community.avatars.length > 0
-                  ? community.avatars
-                  : [1, 2, 3].map((item) => ({ avatar: `https://i.pravatar.cc/80?img=${item + 23}`, name: 'Utsav client' }))
-                ).map((item) => (
-                  <img
-                    key={item.avatar}
-                    src={item.avatar}
-                    alt={item.name || 'Utsav client'}
-                    className="size-12 rounded-full border-2 border-white object-cover"
-                  />
-                ))}
-                <span className="grid size-12 place-items-center rounded-full border-2 border-white bg-white text-2xl text-cocoa">
-                  +
-                </span>
-              </div>
-              <div>
-                <p className="font-serif text-4xl font-bold leading-none">{formattedUsers}</p>
-                <p className="mt-1 text-sm font-semibold text-white/78">Utsav Clients</p>
-              </div>
-            </motion.div>
+          <h1 className="max-w-4xl font-serif text-[4.05rem] font-semibold leading-[0.78] tracking-normal text-espresso sm:text-[6.2rem] lg:text-[7.35rem]">
+            Timeless Elegance
+          </h1>
 
-            <motion.a
-              href="/categories"
-              className="absolute bottom-8 right-0 grid w-full max-w-[26rem] grid-cols-[9rem_1fr_auto] items-center gap-4 rounded-[1.35rem] bg-white p-4 text-espresso shadow-[0_22px_65px_rgba(37,23,11,0.24)] sm:right-4"
-            >
-              <img src={heroImages.detail} alt="Gold bracelet detail" className="h-24 w-36 rounded-2xl object-cover" />
-              <div>
-                <p className="font-serif text-2xl font-bold leading-6">The Utsav Edit</p>
-                <p className="mt-3 text-sm font-semibold text-cocoa">Discover</p>
+          <p className="mt-6 max-w-xl text-sm leading-7 text-stone-600 sm:text-base sm:leading-8">
+            Warm gold tones, polished pearls, and sculptural accents arranged like a private jewellery editorial for everyday ceremony.
+          </p>
+
+          <div className="mt-7 flex flex-wrap gap-3">
+            <a href="/collections" className="inline-flex items-center justify-center rounded-full bg-espresso px-6 py-3 text-xs font-bold uppercase tracking-[0.2em] text-white shadow-[0_18px_42px_rgba(52,35,20,0.2)] transition hover:-translate-y-0.5 hover:bg-cocoa">
+              Shop the Edit
+            </a>
+            <a href="/categories" className="inline-flex items-center justify-center gap-2 rounded-full border border-espresso/20 bg-white/70 px-6 py-3 text-xs font-bold uppercase tracking-[0.2em] text-espresso transition hover:-translate-y-0.5 hover:border-cocoa hover:text-cocoa">
+              Explore Collections <FiArrowRight />
+            </a>
+          </div>
+
+          <div className="mt-9 grid max-w-lg grid-cols-3 border-y border-espresso/10 py-4 text-center sm:text-left">
+            {[
+              ['10+', 'Fresh arrivals'],
+              ['\u20b9149', 'Starting edit'],
+              [formattedUsers, 'Utsav clients'],
+            ].map(([value, label]) => (
+              <div key={label} className="border-r border-espresso/10 px-3 last:border-r-0 sm:px-5 first:sm:pl-0">
+                <p className="font-serif text-3xl font-semibold text-cocoa">{value}</p>
+                <p className="mt-1 text-[0.62rem] font-bold uppercase tracking-[0.2em] text-stone-500">{label}</p>
               </div>
-              <span className="grid size-8 place-items-center rounded-full border border-stone-200 text-cocoa">
-                <FiArrowRight />
-              </span>
-            </motion.a>
+            ))}
           </div>
         </div>
-      </motion.div>
+
+        <div className="relative mx-auto w-full max-w-[34rem]">
+          <img
+            src="/images/products/hero-golden-flower-editorial.png"
+            alt="Golden flower earrings editorial still life"
+            className="aspect-[4/5.15] w-full rounded-t-full object-cover shadow-[0_28px_70px_rgba(80,52,25,0.16)]"
+          />
+        </div>      </motion.div>
     </section>
   )
 }
 
 export default HeroContent
-
-
-
-
