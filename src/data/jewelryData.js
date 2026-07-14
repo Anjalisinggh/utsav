@@ -14,7 +14,7 @@ import { PiSparkleFill } from 'react-icons/pi'
 import { catalogProducts } from './catalogProducts'
 
 const hiddenCatalogIds = new Set([492497750, 491089276, 492496903, 485162877, 495545763, 495994033, 487959814, 482723062, 485162655, 489554589, 485162460, 486849047, 485304100, 492399043])
-const featuredCatalogIds = [900001001, 900001002, 900001003, 900001004, 900001005, 900001006, 900001007, 900001008, 900001009, 900001010, 900000101, 900000102, 900000103, 900000104, 900000106, 900000107, 900000108, 900000109, 900000110, 900000105]
+const featuredCatalogIds = [900001001, 900001005, 900000101, 900000102, 900000103, 900000104, 900000106, 900000107, 900000108, 900000109, 900000110, 900000105]
 
 function uniqueByCatalog(products) {
   const seen = new Set()
@@ -115,6 +115,12 @@ export const categories = [
   {
     name: 'Bangles',
     slug: 'bangles',
+    icon: GiDiamondRing,
+    image: '/images/categories/bangles-category.png?v=2',
+  },
+  {
+    name: 'Rings',
+    slug: 'rings',
     icon: GiDiamondRing,
     image: '/images/categories/bangles-category.png?v=2',
   },
