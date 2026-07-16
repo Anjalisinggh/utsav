@@ -1,4 +1,4 @@
-import { FiArrowRight } from 'react-icons/fi'
+import { FiArrowRight, FiStar } from 'react-icons/fi'
 import { formatPrice } from '../../utils/formatPrice'
 
 function ProductCard({ product }) {
@@ -12,7 +12,12 @@ function ProductCard({ product }) {
           className="aspect-[0.92/1] w-full object-cover transition duration-700 group-hover:scale-105 sm:aspect-[4/4.6]"
           loading="lazy"
         />
-
+        {product.rating && (
+          <div className="absolute right-4 top-4 flex items-center gap-1.5 rounded-full bg-[#fffaf4] px-4 py-2 text-sm font-semibold text-[#3f2c1b] shadow-[0_10px_24px_rgba(52,35,20,0.1)]">
+            <FiStar className="text-[0.9rem] text-[#9b7a4b]" />
+            <span>{product.rating}</span>
+          </div>
+        )}
       </div>
       <div className="px-1 pb-2 pt-3 sm:px-2 sm:pt-4">
         <p className="text-[0.58rem] font-bold uppercase tracking-[0.22em] text-cocoa">{product.category}</p>
@@ -22,7 +27,6 @@ function ProductCard({ product }) {
         </div>
         <div className="mt-2 flex flex-wrap items-center gap-2">
           <span className="text-xs font-bold uppercase tracking-[0.16em] text-stone-500">Price: {formatPrice(product)}</span>
-          {product.rating && <span className="text-xs font-semibold text-stone-400">/ {product.rating}</span>}
         </div>
       </div>
     </article>
