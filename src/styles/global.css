@@ -41,6 +41,15 @@ a {
   margin-inline: auto;
 }
 
+.hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 @media (max-width: 640px) {
   body {
     background: linear-gradient(180deg, #fbf7ef 0%, #f8f3ea 52%, #f1eadf 100%);

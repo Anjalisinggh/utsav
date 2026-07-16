@@ -1,7 +1,6 @@
 import {
   FaGem,
   FaInstagram,
-  FaRegHeart,
   FaShippingFast,
   FaShieldAlt,
   FaStar,
@@ -122,7 +121,7 @@ export const categories = [
     name: 'Rings',
     slug: 'rings',
     icon: GiDiamondRing,
-    image: '/images/categories/bangles-category.png?v=2',
+    image: '/images/categories/rings-category.png?v=1',
   },
   {
     name: 'Hair Accessories',
@@ -141,13 +140,12 @@ export const categories = [
 export const brandLogos = ['MAISON LUNE', 'AURELIA', 'NOIRGOLD', 'VELVET GEM', 'OPAL & CO']
 
 export const socialLinks = [
-  { label: 'Instagram', icon: FaInstagram, href: 'https://www.instagram.com/jewelbizzz/' },
+  { label: 'Instagram', icon: FaInstagram, href: 'https://www.instagram.com/everydayjewel1ry/' },
   { label: 'X', icon: FaXTwitter, href: 'https://x.com/Its_Utsavv' },
   { label: 'Meesho', icon: FaStore, href: 'https://www.meesho.com/Utsavv?_ms=3.0.1' },
 ]
 
 export const sharedIcons = {
   gem: FaGem,
-  heart: FaRegHeart,
   star: FaStar,
 }

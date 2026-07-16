@@ -1,5 +1,4 @@
-import { categories, collectionItems, heroImages } from '../data/jewelryData'
-import PageHero from '../components/Common/PageHero'
+import { categories, collectionItems } from '../data/jewelryData'
 import ProductCard from '../components/Collection/ProductCard'
 
 function CollectionPage({ categorySlug }) {
@@ -10,19 +9,13 @@ function CollectionPage({ categorySlug }) {
 
   return (
     <>
-      <PageHero
-        eyebrow="The Utsav Edit"
-        title="Jewelry selected with restraint and feeling."
-        text="Explore warm gold tones, delicate stones, and considered silhouettes made for the moments you keep returning to."
-        image={heroImages.detail}
-      />
 
-      <section id="collection-shop" className="scroll-mt-24 bg-[#fbf7ef] py-12 sm:scroll-mt-28 sm:py-20">
+      <section id="collection-shop" className="scroll-mt-24 bg-[#fbf7ef] pb-12 pt-6 sm:scroll-mt-28 sm:pb-16 sm:pt-8">
         <div className="luxury-container">
-          <div className="border-y border-espresso/10 py-6 sm:flex sm:flex-row sm:items-end sm:justify-between sm:gap-5">
-            <div>
+          <div className="sm:flex sm:flex-row sm:items-end sm:justify-between sm:gap-5">
+            <div className="shrink-0">
               <p className="text-xs font-bold uppercase tracking-[0.28em] text-cocoa">Refine the Edit</p>
-              <h2 className="mt-2 font-serif text-4xl font-semibold leading-none text-espresso sm:text-5xl">Pieces with presence</h2>
+              <h2 className="mt-2 whitespace-nowrap font-serif text-3xl font-semibold leading-none text-espresso sm:text-4xl lg:text-5xl">Pieces with presence</h2>
             </div>
             <div className="mobile-scrollbar -mx-1 mt-5 flex gap-2 overflow-x-auto px-1 pb-1 sm:mx-0 sm:mt-0 sm:flex-wrap sm:justify-end sm:overflow-visible sm:px-0 sm:pb-0">
               <a

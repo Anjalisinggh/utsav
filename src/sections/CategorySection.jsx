@@ -13,11 +13,10 @@ function CategorySection() {
             text="Earrings, bangles, necklaces, and finishing pieces arranged with the same editorial restraint as the header."
             className="max-w-2xl"
           />
-          <span className="hidden h-px flex-1 bg-cocoa/20 md:block" />
         </div>
-        <div className="grid grid-cols-2 gap-3 sm:gap-5 md:grid-cols-3 lg:grid-cols-5">
+        <div className="hide-scrollbar flex gap-3 overflow-x-auto pb-3 sm:gap-5">
           {categories.map((category) => (
-            <a key={category.name} href={`/collections/${category.slug}`} className="block">
+            <a key={category.name} href={`/collections/${category.slug}`} className="block w-[78vw] max-w-72 shrink-0 sm:w-72 lg:w-[calc((100%_-_5rem)/5)] lg:max-w-none">
               <CategoryCard category={category} />
             </a>
           ))}

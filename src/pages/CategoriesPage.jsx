@@ -41,9 +41,9 @@ function CategoriesPage({ categorySlug }) {
 
       <section id="category-shop" className="scroll-mt-28 bg-[#f8f3ea] pb-20 sm:pb-28">
         <div className="luxury-container">
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          <div className="hide-scrollbar flex gap-4 overflow-x-auto pb-3 sm:gap-5">
             {visibleCategories.map((category, index) => (
-              <FadeIn key={category.name} delay={index * 0.08}>
+              <FadeIn key={category.name} delay={index * 0.08} className="w-[78vw] max-w-72 shrink-0 sm:w-72 lg:w-[calc((100%_-_5rem)/5)] lg:max-w-none">
                 <a href={`/collections/${category.slug}`} className="block">
                   <CategoryCard category={category} />
                 </a>

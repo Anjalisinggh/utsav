@@ -1,11 +1,10 @@
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
-import { FiArrowRight, FiHeart, FiMenu, FiSearch, FiShoppingBag, FiUser, FiX } from 'react-icons/fi'
-import { navLinks, sharedIcons } from '../../data/jewelryData'
+import { FiArrowRight, FiMenu, FiShoppingBag, FiX } from 'react-icons/fi'
+import { navLinks } from '../../data/jewelryData'
 import { api } from '../../lib/api'
 
 function HeroContent() {
-  const GemIcon = sharedIcons.gem
   const [menuOpen, setMenuOpen] = useState(false)
   const [community, setCommunity] = useState({ totalUsers: 230000, avatars: [] })
 
@@ -40,7 +39,15 @@ function HeroContent() {
 
       <div className="relative z-20 border-b border-espresso/10 bg-[#fbf7ef]/92 backdrop-blur-xl">
         <div className="luxury-container flex min-h-18 items-center justify-between gap-4 sm:min-h-20">
-          <nav className="hidden items-center gap-7 lg:flex">
+          <a href="/" aria-label="Utsav home" className="shrink-0">
+            <img
+              src="/images/utsav-logo.png"
+              alt="Utsav"
+              className="h-12 w-auto object-contain sm:h-14"
+            />
+          </a>
+
+          <nav className="hidden items-center gap-7 lg:flex lg:ml-6">
             {navLinks.slice(0, 3).map((link) => (
               <a key={link.label} href={link.href} className="text-[0.7rem] font-bold uppercase tracking-[0.22em] text-espresso/75 transition hover:text-cocoa">
                 {link.label}
@@ -48,25 +55,10 @@ function HeroContent() {
             ))}
           </nav>
 
-          <a href="/" className="flex items-center gap-2.5 lg:absolute lg:left-1/2 lg:-translate-x-1/2">
-            <span className="grid size-9 place-items-center rounded-full border border-cocoa/25 bg-white text-cocoa shadow-sm sm:size-10">
-              <GemIcon className="text-base" />
-            </span>
-            <span className="font-serif text-3xl font-semibold leading-none tracking-wide text-espresso sm:text-[2rem]">Utsav</span>
-          </a>
-
           <div className="ml-auto hidden items-center gap-4 text-espresso/75 lg:flex">
-            <a href="/collections" aria-label="Search collections" className="transition hover:text-cocoa">
-              <FiSearch />
-            </a>
-            <a href="/about" aria-label="Maison Utsav" className="transition hover:text-cocoa">
-              <FiUser />
-            </a>
-            <a href="/collections" aria-label="Saved pieces" className="transition hover:text-cocoa">
-              <FiHeart />
-            </a>
-            <a href="https://api.whatsapp.com/send?phone=919820392106" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-espresso/18 px-4 py-2 text-[0.68rem] font-bold uppercase tracking-[0.18em] transition hover:border-cocoa hover:text-cocoa">
-              <FiShoppingBag /> Concierge
+
+            <a href="https://api.whatsapp.com/send?phone=919930423935" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-espresso/18 px-4 py-2 text-[0.68rem] font-bold uppercase tracking-[0.18em] transition hover:border-cocoa hover:text-cocoa">
+              <FiShoppingBag /> Contact Us
             </a>
           </div>
 
@@ -93,13 +85,13 @@ function HeroContent() {
               </a>
             ))}
             <a
-              href="https://api.whatsapp.com/send?phone=919820392106"
+              href="https://api.whatsapp.com/send?phone=919930423935"
               target="_blank"
               rel="noreferrer"
               onClick={() => setMenuOpen(false)}
               className="mt-2 block rounded-full bg-espresso px-4 py-3 text-center text-sm font-bold text-white hover:bg-cocoa"
             >
-              Speak to Concierge
+              Contact Us
             </a>
           </div>
         )}
@@ -119,7 +111,6 @@ function HeroContent() {
       >
         <div className="relative z-10 max-w-3xl">
           <div className="mb-5 flex flex-wrap items-center gap-3 text-[0.68rem] font-bold uppercase tracking-[0.25em] text-cocoa">
-            <span className="h-px w-12 bg-cocoa/45" />
             Fine jewellery / small-batch pieces
           </div>
 

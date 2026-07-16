@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { FiHeart, FiMinus, FiPlus } from 'react-icons/fi'
+import { FiMinus, FiPlus } from 'react-icons/fi'
 import { collectionItems } from '../data/jewelryData'
 import ProductCard from '../components/Collection/ProductCard'
 import { formatPrice } from '../utils/formatPrice'
@@ -20,7 +20,7 @@ function ProductDetailPage({ productId, productSlug }) {
 
   if (!product) {
     return (
-      <section className="bg-[#f8f3ea] px-4 pb-20 pt-32">
+      <section className="bg-[#f8f3ea] px-4 pb-20 pt-6 sm:pt-8">
         <div className="luxury-container border border-espresso/10 bg-[#fffdf8] p-8 text-center shadow-[0_18px_55px_rgba(80,52,25,0.08)]">
           <p className="text-xs font-bold uppercase tracking-[0.28em] text-cocoa">Product Not Found</p>
           <h1 className="mt-3 font-serif text-5xl font-semibold text-espresso">This piece is no longer available.</h1>
@@ -50,7 +50,7 @@ function ProductDetailPage({ productId, productSlug }) {
   const whatsappMessage = encodeURIComponent(
     `Hello, I am interested in this product:\n\n${product.name}\nPrice: ${displayPrice}\nQuantity: ${quantity}\nDescription: ${product.description}\nProduct Link: ${productPageUrl}`,
   )
-  const whatsappUrl = `https://api.whatsapp.com/send?phone=919820392106&text=${whatsappMessage}`
+  const whatsappUrl = `https://api.whatsapp.com/send?phone=919930423935&text=${whatsappMessage}`
   const descriptionCopy = {
     Earrings: `${product.name} is chosen for everyday elegance with a comfortable feel, polished shine, and a versatile silhouette that works for casual outfits, gifting, and festive dressing.`,
     Necklaces: `${product.name} adds a graceful focal point with a refined finish, easy styling, and a soft statement look for daily wear or special occasions.`,
@@ -67,7 +67,7 @@ function ProductDetailPage({ productId, productSlug }) {
 
   return (
     <>
-      <section className="bg-[#f8f3ea] px-3 pb-12 pt-24 sm:px-4 sm:pb-16 sm:pt-32">
+      <section className="bg-[#f8f3ea] px-3 pb-12 pt-4 sm:px-4 sm:pb-16 sm:pt-6">
         <div className="luxury-container">
           <a href="/collections" className="inline-flex rounded-full border border-espresso/10 bg-[#fffdf8]/80 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-cocoa shadow-sm transition hover:text-espresso sm:bg-[#fffdf8]/70 sm:text-xs">
             Back to Collections
@@ -150,7 +150,7 @@ function ProductDetailPage({ productId, productSlug }) {
                     rel="noreferrer"
                     className="col-span-2 rounded-full bg-espresso px-5 py-3 text-center text-sm font-bold uppercase tracking-[0.16em] text-white transition hover:bg-cocoa sm:col-span-1 sm:px-7"
                   >
-                    Speak to Concierge
+                    Contact Us
                   </a>
                   <a
                     href={`/collections/${categorySlug}`}
@@ -158,13 +158,7 @@ function ProductDetailPage({ productId, productSlug }) {
                   >
                     More {product.category}
                   </a>
-                  <button
-                    type="button"
-                    aria-label={`Save ${product.name}`}
-                    className="grid size-11 place-items-center justify-self-end rounded-full border border-espresso/15 text-cocoa transition hover:bg-cream sm:justify-self-auto"
-                  >
-                    <FiHeart />
-                  </button>
+
                 </div>
               </div>
             </article>

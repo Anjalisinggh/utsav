@@ -10,7 +10,6 @@ function PageHero({ eyebrow, title, text, image }) {
       <div className="luxury-container relative grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]">
         <FadeIn className="max-w-3xl">
           <div className="mb-5 flex items-center gap-3 text-[0.68rem] font-bold uppercase tracking-[0.28em] text-cocoa">
-            <span className="h-px w-12 bg-cocoa/45" />
             {eyebrow}
           </div>
           <h1 className="font-serif text-[3.8rem] font-semibold leading-[0.82] text-espresso sm:text-7xl lg:text-8xl">{title}</h1>
